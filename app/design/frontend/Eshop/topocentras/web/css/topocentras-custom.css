@@ -1,0 +1,899 @@
+/**
+ * Topocentras-style overrides – match topocentras.lt screenshot
+ * Primary: #0a4c8c, Alt: #1565c0, Promo border: #b39ddb, Yellow bar: #ffeb3b
+ */
+
+/* ========== Header: single dark blue bar (catalog + nav with separators) ========== */
+.page-header .panel.wrapper {
+    background-color: #0a4c8c !important;
+    color: #fff !important;
+    padding: 0.6rem 0;
+}
+.page-header .panel.wrapper a,
+.page-header .panel.wrapper .header.links a {
+    color: #fff !important;
+}
+.page-header .panel.wrapper a:hover {
+    color: rgba(255,255,255,0.9) !important;
+    text-decoration: underline;
+}
+/* Nav items with vertical separators (like Prekių katalogas | Akcijos | Apple | …) */
+.page-header .panel.header .header.links,
+.page-header .panel.header .header.links li {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.page-header .panel.header .header.links li {
+    margin: 0;
+    padding: 0 0.75rem;
+    border-right: 1px solid rgba(255,255,255,0.5);
+}
+.page-header .panel.header .header.links li:last-child {
+    border-right: 0;
+}
+/* Hamburger / catalog trigger style */
+.page-header .panel.header .header.links li:first-child a:before {
+    content: "\2630";
+    margin-right: 0.35rem;
+    font-size: 1.1rem;
+}
+
+/* ========== Prominent search bar ========== */
+.block-search .control {
+    border: 2px solid #0a4c8c !important;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.block-search input {
+    border: 0 !important;
+    padding: 10px 45px 10px 14px;
+    font-size: 15px;
+}
+.block-search .action.search {
+    background: #0a4c8c !important;
+    border: 0 !important;
+    color: #fff !important;
+}
+.block-search .action.search:hover {
+    background: #1565c0 !important;
+}
+
+/* ========== Links and primary actions ========== */
+a {
+    color: #0a4c8c;
+}
+a:hover {
+    color: #1565c0;
+}
+.action.primary,
+.action-primary,
+button.action.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 12px 24px;
+}
+.action.primary:hover,
+.action-primary:hover,
+button.action.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+    color: #fff !important;
+}
+
+/* ========== Navigation ========== */
+.nav-sections .navigation a:hover,
+.navigation .level0 > .level-top:hover {
+    color: #0a4c8c !important;
+}
+.navigation .level0.active > .level-top,
+.navigation .level0.has-active > .level-top {
+    color: #0a4c8c !important;
+}
+
+/* ========== Main content ========== */
+.page-main {
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+/* ========== LAYOUT: Left sidebar + main (Topocentras screenshot) ========== */
+/* Force 2-column layout and visible sidebar (override Luma) */
+.page-layout-2columns-left .columns,
+.cms-index-index .columns {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 100%;
+}
+.page-layout-2columns-left .sidebar.sidebar-main,
+.cms-index-index .sidebar.sidebar-main {
+    display: block !important;
+    width: 260px !important;
+    min-width: 260px !important;
+    flex-shrink: 0;
+    order: -1;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 0 !important;
+    margin-right: 1.5rem;
+    visibility: visible !important;
+    min-height: 200px;
+}
+.columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    max-width: 100%;
+}
+.sidebar.sidebar-main {
+    width: 260px;
+    min-width: 260px;
+    flex-shrink: 0;
+    order: -1; /* Left sidebar: appear first visually */
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
+    padding: 1rem 0;
+    margin-right: 1.5rem;
+}
+.sidebar.sidebar-main .block {
+    border: 0;
+    margin-bottom: 0;
+}
+.sidebar.sidebar-main .block-title,
+.sidebar.sidebar-main .title strong,
+.sidebar.sidebar-main .block .title strong {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 0.5rem;
+}
+.sidebar.sidebar-main .block .content {
+    padding: 0;
+}
+.sidebar.sidebar-main .block .content ol.items,
+.sidebar.sidebar-main .block .content ul.items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+/* Category list in sidebar – white list with dark text (like screenshot) */
+.sidebar.sidebar-main .items li,
+.sidebar.sidebar-main .filter-options-content .items li,
+.sidebar.sidebar-main .options ol.items li {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #f5f5f5;
+}
+.sidebar.sidebar-main .items li a,
+.sidebar.sidebar-main .filter-options-content .items li a,
+.sidebar.sidebar-main .options ol.items li a {
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.sidebar.sidebar-main .items li a:hover,
+.sidebar.sidebar-main .filter-options-content .items li a:hover,
+.sidebar.sidebar-main .options ol.items li a:hover {
+    color: #0a4c8c;
+}
+
+/* ========== Topocentras catalog menu (vertical menu with header + icons) ========== */
+.sidebar.sidebar-main .topocentras-catalog-menu {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-header {
+    display: flex;
+    align-items: stretch;
+    min-height: 44px;
+    background: #e0eff8;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-header-accent {
+    width: 6px;
+    min-width: 6px;
+    background: #0a4c8c;
+    flex-shrink: 0;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    flex: 1;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #0a4c8c;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-hamburger {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    flex-shrink: 0;
+    background-color: #0a4c8c;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Crect y='0' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='5' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='10' width='18' height='2' rx='1' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Crect y='0' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='5' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='10' width='18' height='2' rx='1' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-promo {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0 1rem;
+    background: rgba(10, 76, 140, 0.12);
+    color: #0a4c8c;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-promo:hover {
+    background: rgba(10, 76, 140, 0.2);
+    color: #0a4c8c;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-promo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #c62828;
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-list {
+    background: #fff;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-list .items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item:last-child {
+    border-bottom: 0;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item a:hover {
+    background: #f8f9fa;
+    color: #0a4c8c;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background: #555;
+    opacity: 0.75;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='4' width='16' height='16' rx='2' fill='none' stroke='black' stroke-width='2'/%3E%3Crect x='8' y='8' width='8' height='2' fill='black'/%3E%3Crect x='8' y='13' width='6' height='2' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='4' width='16' height='16' rx='2' fill='none' stroke='black' stroke-width='2'/%3E%3Crect x='8' y='8' width='8' height='2' fill='black'/%3E%3Crect x='8' y='13' width='6' height='2' fill='black'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item a:hover .catalog-menu-icon {
+    opacity: 0.8;
+    color: #0a4c8c;
+}
+.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-label {
+    flex: 1;
+    min-width: 0;
+}
+.column.main {
+    flex: 1 !important;
+    min-width: 0;
+}
+.page-layout-2columns-left .column.main,
+.cms-index-index .column.main {
+    flex: 1 !important;
+    min-width: 0;
+}
+
+/* ========== HERO section (light blue gradient, “Pirkti” button) ========== */
+.topocentras-hero,
+.block-cms-hero {
+    background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    min-height: 280px;
+}
+.topocentras-hero .hero-title,
+.block-cms-hero .hero-title {
+    color: #333;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.topocentras-hero .hero-subtitle,
+.block-cms-hero .hero-subtitle {
+    color: #555;
+    margin-bottom: 1rem;
+}
+.topocentras-hero .action.primary,
+.block-cms-hero .action.primary,
+.topocentras-hero .btn-pirkti,
+.block-cms-hero .btn-pirkti {
+    background: #fff !important;
+    color: #333 !important;
+    border: 1px solid #333 !important;
+    border-radius: 999px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+}
+.topocentras-hero .action.primary:hover,
+.block-cms-hero .action.primary:hover,
+.topocentras-hero .btn-pirkti:hover,
+.block-cms-hero .btn-pirkti:hover {
+    background: #f5f5f5 !important;
+    border-color: #333 !important;
+    color: #333 !important;
+}
+/* Placeholder when CMS block not set */
+.topocentras-hero .hero-placeholder {
+    padding: 1rem 0;
+}
+.topocentras-hero .hero-placeholder .hero-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+.promo-placeholder {
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0;
+}
+/* Carousel dots */
+.topocentras-hero .owl-dots .owl-dot span,
+.topocentras-hero .slick-dots li button {
+    background: #bdbdbd;
+    border-radius: 50%;
+}
+.topocentras-hero .owl-dots .owl-dot.active span,
+.topocentras-hero .slick-dots li.slick-active button {
+    background: #0a4c8c;
+}
+
+/* ========== 4 promo banners (purple dotted border, yellow title bar) ========== */
+.topocentras-promo-banners {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+@media (max-width: 1024px) {
+    .topocentras-promo-banners { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    .topocentras-promo-banners { grid-template-columns: 1fr; }
+}
+.topocentras-promo-banner,
+.block-promo-banner {
+    border: 2px dashed #b39ddb;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    padding: 0;
+}
+.topocentras-promo-banner .promo-title,
+.block-promo-banner .promo-title {
+    background: #ffeb3b;
+    color: #333;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 4px 4px 0 0;
+    margin: 0;
+}
+.topocentras-promo-banner .promo-content,
+.block-promo-banner .promo-content {
+    padding: 1rem;
+    min-height: 120px;
+}
+.topocentras-promo-banner img,
+.block-promo-banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ========== Product grid ========== */
+.products-grid .product-item .product-item-info {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    transition: box-shadow 0.2s ease;
+}
+.products-grid .product-item .product-item-info:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.products-grid .product-item .product-item-info .product-item-link {
+    color: #0a4c8c;
+}
+.products-grid .product-item .product-item-info .product-item-link:hover {
+    color: #1565c0;
+}
+
+/* ========== Minicart / header icons (optional blue accent) ========== */
+.header.content .minicart-wrapper .action.showcart:hover {
+    color: #0a4c8c;
+}
+
+/* ========== Logo area (match Topocentras header) ========== */
+.page-header .header.content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.page-header .logo {
+    margin: 0;
+}
+.page-header .logo img {
+    max-height: 50px;
+    width: auto;
+}
+
+/* ========== Footer (dark bar like Topocentras) ========== */
+.page-footer {
+    margin-top: 3rem;
+}
+.page-footer .footer.content {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.page-footer a {
+    color: #0a4c8c;
+}
+.page-footer a:hover {
+    color: #1565c0;
+}
+
+/* ========== Homepage product list title ========== */
+.block.widget.new-products .block-title {
+    color: #0a4c8c;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* ========== Breadcrumbs ========== */
+.breadcrumbs a {
+    color: #0a4c8c;
+}
+.breadcrumbs a:hover {
+    color: #1565c0;
+}
+
+/* ============================================================
+   FULL TOPOCENTRAS CLONE – all storefront areas
+   Primary: #0a4c8c  |  Hover/alt: #1565c0  |  Text: #333
+   ============================================================ */
+
+/* ---------- Forms (inputs, selects, textarea) ---------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+    border-color: #ccc;
+    border-radius: 4px;
+}
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0a4c8c;
+    box-shadow: 0 0 0 1px #0a4c8c;
+}
+.field.choice .label span {
+    color: #0a4c8c;
+}
+
+/* ---------- Toolbar (sorter, limiter, pager) ---------- */
+.toolbar-products .limiter-options,
+.toolbar-products .sorter-options {
+    border-color: #ccc;
+    color: #333;
+}
+.toolbar-products .pages a,
+.toolbar-products .pages strong {
+    color: #0a4c8c;
+}
+.toolbar-products .pages a:hover,
+.toolbar-products .pages .item.current strong {
+    color: #1565c0;
+}
+.toolbar-products .pages .action.next,
+.toolbar-products .pages .action.previous {
+    color: #0a4c8c;
+}
+.toolbar-products .pages .action.next:hover,
+.toolbar-products .pages .action.previous:hover {
+    color: #1565c0;
+}
+
+/* ---------- Sidebar / layered navigation ---------- */
+.sidebar .block.filter .block-title,
+.sidebar .block .title strong,
+.sidebar .block .block-title strong {
+    color: #0a4c8c;
+    font-weight: 600;
+}
+.sidebar .block.filter .filter-options-item a,
+.sidebar .block .item a {
+    color: #0a4c8c;
+}
+.sidebar .block.filter .filter-options-item a:hover,
+.sidebar .block .item a:hover {
+    color: #1565c0;
+}
+.sidebar .block.filter .filter-options-content .count {
+    color: #666;
+}
+
+/* ---------- Product page ---------- */
+.product-info-main .page-title,
+.product-info-main .product-info-price .price,
+.product-info-main .product.attribute.overview {
+    color: #333;
+}
+.product-info-main .action.tocart,
+.product-info-main .action.towishlist,
+.product-info-main .action.tocompare {
+    color: #0a4c8c;
+}
+.product-info-main .action.tocart.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.product-info-main .action.tocart.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+.product-info-main .action.towishlist:hover,
+.product-info-main .action.tocompare:hover {
+    color: #1565c0;
+}
+.product-info-main .product-add-form .box-tocart .field.qty label {
+    color: #333;
+}
+.product-info-main .product-info-stock-sku .value {
+    color: #0a4c8c;
+}
+.product.data.items > .item.title > .switch {
+    color: #0a4c8c;
+}
+.product.data.items > .item.title.active > .switch,
+.product.data.items > .item.title > .switch:hover {
+    color: #1565c0;
+}
+
+/* ---------- Product list (category) – extra ---------- */
+.products-list .product-item-info .product-item-link {
+    color: #0a4c8c;
+}
+.products-list .product-item-info .product-item-link:hover {
+    color: #1565c0;
+}
+.products-list .product-item-info .price {
+    color: #333;
+}
+.products-list .action.tocart.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+}
+.products-list .action.tocart.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+
+/* ---------- Cart ---------- */
+.cart.table-wrapper .product-item-name a {
+    color: #0a4c8c;
+}
+.cart.table-wrapper .product-item-name a:hover {
+    color: #1565c0;
+}
+.cart-summary .action.primary.checkout {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.cart-summary .action.primary.checkout:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+.cart-container .action.update,
+.cart-container .action.continue {
+    color: #0a4c8c;
+}
+.cart-container .action.update:hover,
+.cart-container .action.continue:hover {
+    color: #1565c0;
+}
+
+/* ---------- Checkout ---------- */
+.checkout-index-index .opc-wrapper .step-title,
+.checkout-index-index .modal-header,
+.checkout-index-index .payment-method-title {
+    color: #0a4c8c;
+}
+.checkout-index-index .action.primary,
+.checkout-index-index button.action-primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.checkout-index-index .action.primary:hover,
+.checkout-index-index button.action-primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+.checkout-index-index a {
+    color: #0a4c8c;
+}
+.checkout-index-index a:hover {
+    color: #1565c0;
+}
+
+/* ---------- Customer account ---------- */
+.account .sidebar-main .nav.item a,
+.account .block-dashboard-info a,
+.account .block-dashboard-addresses a,
+.account .column.main a {
+    color: #0a4c8c;
+}
+.account .sidebar-main .nav.item a:hover,
+.account .block-dashboard-info a:hover,
+.account .block-dashboard-addresses a:hover,
+.account .column.main a:hover {
+    color: #1565c0;
+}
+.account .action.primary,
+.account button.action.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.account .action.primary:hover,
+.account button.action.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+.account-nav .current strong {
+    color: #0a4c8c;
+}
+
+/* ---------- Messages ---------- */
+.message.success {
+    background: #e8f5e9;
+    border-color: #0a4c8c;
+    color: #2e7d32;
+}
+.message.error {
+    background: #ffebee;
+    border-color: #c62828;
+}
+.message.notice {
+    background: #e3f2fd;
+    border-color: #1565c0;
+    color: #0a4c8c;
+}
+
+/* ---------- Modals ---------- */
+.modal-header,
+.modal-content .modal-title {
+    color: #0a4c8c;
+}
+.modal-content .action.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.modal-content .action.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+.modal-content a {
+    color: #0a4c8c;
+}
+.modal-content a:hover {
+    color: #1565c0;
+}
+
+/* ---------- Footer – all blocks ---------- */
+.page-footer .footer.content .links li a,
+.page-footer .footer.content .block a {
+    color: #0a4c8c;
+}
+.page-footer .footer.content .links li a:hover,
+.page-footer .footer.content .block a:hover {
+    color: #1565c0;
+}
+.page-footer .footer.content .block .title {
+    color: #0a4c8c;
+    font-weight: 600;
+}
+.copyright {
+    color: #666;
+}
+.copyright a {
+    color: #0a4c8c;
+}
+.copyright a:hover {
+    color: #1565c0;
+}
+
+/* ---------- Compare / Wishlist ---------- */
+.action.compare,
+.action.towishlist,
+.wishlist-index-index .product-item-info .product-item-link {
+    color: #0a4c8c;
+}
+.action.compare:hover,
+.action.towishlist:hover,
+.wishlist-index-index .product-item-info .product-item-link:hover {
+    color: #1565c0;
+}
+.wishlist-index-index .action.primary,
+.wishlist-index-index button.action.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+}
+.wishlist-index-index .action.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+
+/* ---------- CMS / static pages ---------- */
+.cms-page-view a,
+.cms-index-index a {
+    color: #0a4c8c;
+}
+.cms-page-view a:hover,
+.cms-index-index a:hover {
+    color: #1565c0;
+}
+.cms-page-view .page-title,
+.cms-index-index .page-title {
+    color: #0a4c8c;
+}
+
+/* ---------- Search results ---------- */
+.search.results .product-item-info .product-item-link {
+    color: #0a4c8c;
+}
+.search.results .product-item-info .product-item-link:hover {
+    color: #1565c0;
+}
+.search.results .action.primary {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+}
+.search.results .action.primary:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+
+/* ---------- Buttons (secondary / link-style) ---------- */
+.action.secondary {
+    color: #0a4c8c;
+    border-color: #0a4c8c;
+}
+.action.secondary:hover {
+    color: #1565c0;
+    border-color: #1565c0;
+}
+.link-wishlist,
+.link-compare {
+    color: #0a4c8c;
+}
+.link-wishlist:hover,
+.link-compare:hover {
+    color: #1565c0;
+}
+
+/* ---------- Header: compare, account, minicart (all icons/links) ---------- */
+.header.content .compare.wrapper a,
+.header.content .authorization-link a,
+.header.content .account .header.links a {
+    color: #333;
+}
+.header.content .compare.wrapper a:hover,
+.header.content .authorization-link a:hover,
+.header.content .account .header.links a:hover {
+    color: #0a4c8c;
+}
+.header.content .minicart-wrapper .action.showcart {
+    color: #333;
+}
+.header.content .minicart-wrapper .action.showcart:hover {
+    color: #0a4c8c;
+}
+.minicart-items .product-item-details .product-item-name a {
+    color: #0a4c8c;
+}
+.minicart-items .product-item-details .product-item-name a:hover {
+    color: #1565c0;
+}
+.minicart-wrapper .action.primary.checkout {
+    background: #0a4c8c !important;
+    border-color: #0a4c8c !important;
+    color: #fff !important;
+}
+.minicart-wrapper .action.primary.checkout:hover {
+    background: #1565c0 !important;
+    border-color: #1565c0 !important;
+}
+
+/* ---------- Price (special price accent) ---------- */
+.special-price .price,
+.price-box .price-label + .price {
+    color: #333;
+}
+.old-price .price {
+    color: #999;
+}
+.minimal-price .price-label {
+    color: #666;
+}
+
+/* ---------- Topo klubo kaina & Nuolaida (loyalty discount) ---------- */
+.price-box .topocentras-regular-price {
+    display: block;
+    margin-bottom: 0.15em;
+}
+.price-box .topocentras-regular-price .price {
+    text-decoration: line-through;
+    font-size: 0.95em;
+    color: #666;
+}
+.price-box .topocentras-club-price .price-label {
+    font-weight: 600;
+    color: #0a4c8c;
+}
+.price-box .topocentras-club-price .price {
+    color: #0a4c8c;
+    font-weight: 600;
+}
+.price-box .topocentras-nuolaida {
+    display: inline-block;
+    margin-top: 0.25em;
+    padding: 0.15em 0.5em;
+    background: #e8f4fc;
+    color: #0a4c8c;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+.price-box .topocentras-nuolaida strong {
+    font-weight: 700;
+}

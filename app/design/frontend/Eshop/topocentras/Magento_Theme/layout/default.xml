@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Topocentras-style theme layout - custom CSS and Catalog in nav
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/topocentras-custom.css"/>
+    </head>
+    <body>
+        <!-- Catalog link in main nav (shows when categories exist; add fallback via template override if menu empty) -->
+        <referenceBlock name="catalog.topnav">
+            <block class="Magento\Framework\View\Element\Template" name="topocentras.catalog.link" template="Magento_Theme::html/catalog-menu-link.phtml" after="-"/>
+        </referenceBlock>
+    </body>
+</page>

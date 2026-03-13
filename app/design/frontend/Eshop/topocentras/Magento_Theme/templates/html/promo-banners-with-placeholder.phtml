@@ -1,0 +1,31 @@
+<?php
+/**
+ * Four promo banners: CMS block content or placeholders (Topocentras style).
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$promo1 = $block->getChildHtml('topocentras.promo.1', false);
+$promo2 = $block->getChildHtml('topocentras.promo.2', false);
+$promo3 = $block->getChildHtml('topocentras.promo.3', false);
+$promo4 = $block->getChildHtml('topocentras.promo.4', false);
+$placeholders = [
+    $block->escapeHtml(__('Promo 1')),
+    $block->escapeHtml(__('Promo 2')),
+    $block->escapeHtml(__('Promo 3')),
+    $block->escapeHtml(__('Promo 4')),
+];
+$promos = [$promo1, $promo2, $promo3, $promo4];
+?>
+<div class="topocentras-promo-banners">
+    <?php foreach ($promos as $i => $html): ?>
+        <?php if (trim((string)$html)): ?>
+            <?= /* @noEscape */ $html ?>
+        <?php else: ?>
+            <div class="block-promo-banner">
+                <div class="promo-title"><?= $placeholders[$i] ?></div>
+                <div class="promo-content">
+                    <p class="promo-placeholder"><?= $block->escapeHtml(__('Add CMS block "topocentras-promo-%1" in Content → Blocks', $i + 1)) ?></p>
+                </div>
+            </div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>

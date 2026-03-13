@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Topocentras-style theme - clean e-shop look inspired by topocentras.lt
+ */
+-->
+<theme xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/theme.xsd">
+    <title>Eshop Topocentras Style</title>
+    <parent>Magento/luma</parent>
+</theme>

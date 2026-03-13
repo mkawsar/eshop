@@ -1,0 +1,18 @@
+<?php
+/**
+ * Hero section: CMS block content or placeholder (Topocentras style).
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$heroHtml = $block->getChildHtml('topocentras.hero', false);
+?>
+<div class="topocentras-hero">
+    <?php if (trim((string)$heroHtml)): ?>
+        <?= /* @noEscape */ $heroHtml ?>
+    <?php else: ?>
+        <div class="hero-placeholder">
+            <p class="hero-title"><?= $block->escapeHtml(__('Hero banner')) ?></p>
+            <p class="hero-subtitle"><?= $block->escapeHtml(__('Add CMS block with identifier "topocentras-hero" (Content → Blocks) for your banner, image and "Pirkti" button.')) ?></p>
+            <a href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>" class="action primary btn-pirkti"><?= $block->escapeHtml(__('Pirkti')) ?></a>
+        </div>
+    <?php endif; ?>
+</div>

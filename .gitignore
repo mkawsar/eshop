@@ -1,0 +1,35 @@
+# Local environment (secrets)
+.env
+.env.local
+.env.*.local
+
+# Magento
+/var/
+/generated/
+/pub/static/*
+!/pub/static/.htaccess
+/app/etc/env.php
+/app/etc/config.php
+
+# Composer (keep composer.lock for reproducible installs)
+/vendor/
+composer.phar
+
+# Product feed / import data (large; regenerate or download)
+/saltibarsciu-festivalis-fb.csv
+/var/import/*.csv
+
+# Theme internal / copy guide (do not publish)
+app/design/frontend/Eshop/topocentras/TOPOCENTRAS-COPY-GUIDE.md
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs & temp
+*.log
+/npm-debug.log*
