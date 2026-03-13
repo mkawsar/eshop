@@ -1,0 +1,30 @@
+<?php
+/**
+ * Topocentras top bar: light grey background.
+ * Left: Parduotuves, Verslui, phone, hours. Right: Užsakymo sekimas, (Prisijungti from top.links).
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$storeListUrl = $block->getUrl('stores');
+$orderTrackingUrl = $block->getUrl('sales/order/history');
+?>
+<div class="topocentras-utility-bar">
+    <div class="utility-bar-left">
+        <a href="<?= $block->escapeUrl($storeListUrl) ?>" class="utility-link">
+            <span class="utility-icon">&#9737;</span>
+            <?= $block->escapeHtml(__('Parduotuvės')) ?>
+        </a>
+        <a href="<?= $block->escapeUrl($block->getUrl('about')) ?>" class="utility-link">
+            <span class="utility-icon">&#128196;</span>
+            <?= $block->escapeHtml(__('Verslui')) ?>
+        </a>
+        <span class="utility-phone">+370 660 00200</span>
+        <span class="utility-hours"><?= $block->escapeHtml(__('I-V 8:00-22:00 VI-VII 9:00-17:00')) ?></span>
+    </div>
+    <div class="utility-bar-right">
+        <a href="<?= $block->escapeUrl($orderTrackingUrl) ?>" class="utility-link">
+            <span class="utility-icon">&#128666;</span>
+            <?= $block->escapeHtml(__('Užsakymo sekimas')) ?>
+        </a>
+    </div>
+</div>

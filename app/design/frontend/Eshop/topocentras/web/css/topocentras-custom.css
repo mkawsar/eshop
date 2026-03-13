@@ -3,61 +3,138 @@
  * Primary: #0a4c8c, Alt: #1565c0, Promo border: #b39ddb, Yellow bar: #ffeb3b
  */
 
-/* ========== Header: single dark blue bar (catalog + nav with separators) ========== */
+/* ========== 1. TOP BAR – light grey, blue text, blue Login button (exact screenshot) ========== */
 .page-header .panel.wrapper {
-    background-color: #0a4c8c !important;
-    color: #fff !important;
-    padding: 0.6rem 0;
+    background-color: #f0f0f0 !important;
+    color: #333;
+    padding: 0 !important;
+    line-height: 1.4;
+    border-bottom: 1px solid #e5e5e5;
 }
-.page-header .panel.wrapper a,
-.page-header .panel.wrapper .header.links a {
-    color: #fff !important;
+.page-header .panel.header {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 8px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
-.page-header .panel.wrapper a:hover {
-    color: rgba(255,255,255,0.9) !important;
-    text-decoration: underline;
+/* Utility bar: left = Parduotuvės, Verslui, phone, hours */
+.topocentras-utility-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 16px 24px;
 }
-/* Nav items with vertical separators (like Prekių katalogas | Akcijos | Apple | …) */
-.page-header .panel.header .header.links,
-.page-header .panel.header .header.links li {
+.topocentras-utility-bar .utility-bar-left,
+.topocentras-utility-bar .utility-bar-right {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+}
+.topocentras-utility-bar .utility-link {
+    color: #003399 !important;
+    text-decoration: none !important;
+    font-size: 13px;
+}
+.topocentras-utility-bar .utility-link:hover {
+    text-decoration: underline !important;
+}
+.topocentras-utility-bar .utility-icon {
+    margin-right: 4px;
+    opacity: 0.85;
+}
+.topocentras-utility-bar .utility-phone,
+.topocentras-utility-bar .utility-hours {
+    font-size: 13px;
+    color: #333;
+}
+/* Panel: Login/Register on the right as blue button */
+.page-header .panel.header .header.links {
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 .page-header .panel.header .header.links li {
     margin: 0;
-    padding: 0 0.75rem;
-    border-right: 1px solid rgba(255,255,255,0.5);
+    padding: 0;
+    border: 0;
 }
-.page-header .panel.header .header.links li:last-child {
-    border-right: 0;
+.page-header .panel.header .header.links a {
+    color: #003399 !important;
+    font-size: 13px;
 }
-/* Hamburger / catalog trigger style */
-.page-header .panel.header .header.links li:first-child a:before {
-    content: "\2630";
-    margin-right: 0.35rem;
-    font-size: 1.1rem;
-}
-
-/* ========== Prominent search bar ========== */
-.block-search .control {
-    border: 2px solid #0a4c8c !important;
+.page-header .panel.header .header.links .authorization-link a,
+.page-header .panel.header .header.links a.action.primary {
+    background: #003399 !important;
+    color: #fff !important;
+    padding: 8px 16px !important;
     border-radius: 4px;
+    font-weight: 500;
+}
+.page-header .panel.header .header.links .authorization-link a:hover,
+.page-header .panel.header .header.links a.action.primary:hover {
+    background: #002266 !important;
+    color: #fff !important;
+}
+/* Hide language switcher in top bar (not in Topocentras screenshot) */
+.page-header .panel.header .store_language { display: none; }
+
+/* ========== Header content row: logo | search | minicart (exact same as reference) ========== */
+.page-header .header.content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px 24px;
+    border-bottom: 1px solid #eee;
+}
+.page-header .header.content .block-search {
+    flex: 1;
+    min-width: 220px;
+    max-width: 520px;
+}
+.page-header .header.content .minicart-wrapper {
+    margin-left: auto;
+}
+/* ========== 2. MAIN HEADER – logo | search (rounded) | wishlist | cart (exact screenshot) ========== */
+.block-search .control {
+    display: flex !important;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
     overflow: hidden;
+    background: #fff;
 }
 .block-search input {
     border: 0 !important;
-    padding: 10px 45px 10px 14px;
-    font-size: 15px;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+}
+.block-search input::placeholder {
+    color: #999;
 }
 .block-search .action.search {
-    background: #0a4c8c !important;
+    background: #003399 !important;
     border: 0 !important;
     color: #fff !important;
+    padding: 10px 18px !important;
 }
 .block-search .action.search:hover {
-    background: #1565c0 !important;
+    background: #002266 !important;
 }
+/* Minicart text "Krepšelis tuščias" style */
+.minicart-wrapper .action.showcart .counter-label { font-size: 13px; color: #333; }
 
 /* ========== Links and primary actions ========== */
 a {
@@ -84,14 +161,94 @@ button.action.primary:hover {
     color: #fff !important;
 }
 
-/* ========== Navigation ========== */
+/* ========== 3. BLUE NAV BAR – Prekių katalogas (darker) + menu items with icons (exact screenshot) ========== */
+.nav-sections {
+    background: #003399 !important;
+    margin-bottom: 0;
+}
+.nav-sections .navigation,
+.nav-sections .navigation ul {
+    background: transparent !important;
+    border: 0 !important;
+}
+.nav-sections .topocentras-blue-nav,
+.nav-sections .navigation ul {
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 0 0 16px !important;
+    max-width: 1280px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.nav-sections .topocentras-blue-nav > li,
+.nav-sections .navigation .level0 {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+}
+.nav-sections .topocentras-blue-nav > li > a,
+.nav-sections .navigation .level0 > .level-top {
+    color: #fff !important;
+    padding: 12px 16px !important;
+    font-size: 14px;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none !important;
+}
+.nav-sections .topocentras-blue-nav > li > a:hover,
+.nav-sections .navigation .level0 > .level-top:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff !important;
+}
+/* First item: Prekių katalogas – darker blue block with hamburger */
+.nav-sections .nav-catalog-trigger {
+    background: #002266 !important;
+    margin-left: -16px !important;
+    padding-left: 16px !important;
+}
+.nav-sections .nav-catalog-trigger > a {
+    font-weight: 600;
+}
+.nav-catalog-hamburger {
+    display: inline-block;
+    width: 18px;
+    height: 14px;
+    background: #fff;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Crect y='0' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='5' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='10' width='18' height='2' rx='1' fill='black'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12'%3E%3Crect y='0' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='5' width='18' height='2' rx='1' fill='black'/%3E%3Crect y='10' width='18' height='2' rx='1' fill='black'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+/* Vertical separators between nav items (except first) */
+.nav-sections .topocentras-blue-nav > li:not(.nav-catalog-trigger) {
+    border-left: 1px solid rgba(255,255,255,0.35) !important;
+}
+/* Nav icons (small squares/circles) */
+.nav-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.9);
+}
+.nav-icon-percent { mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M7 4v2h10V4H7zm0 14v2h10v-2H7zm9-12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h8zm-2 2h-4v8h4v-8z'/%3E%3C/svg%3E") no-repeat center/contain; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M7 4v2h10V4H7zm0 14v2h10v-2H7zm9-12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h8zm-2 2h-4v8h4v-8z'/%3E%3C/svg%3E") no-repeat center/contain; }
+.nav-icon-phone { mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center/contain; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center/contain; }
+.nav-icon-gear { mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z'/%3E%3C/svg%3E") no-repeat center/contain; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M19.14 12.94c.04-.31.06-.63.06-.94 0-.31-.02-.63-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.04.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z'/%3E%3C/svg%3E") no-repeat center/contain; }
+.nav-icon-diamond,
+.nav-icon-star,
+.nav-icon-gift { border-radius: 50%; }
+
+/* Legacy nav hover (categories) */
 .nav-sections .navigation a:hover,
 .navigation .level0 > .level-top:hover {
-    color: #0a4c8c !important;
+    color: #fff !important;
 }
 .navigation .level0.active > .level-top,
 .navigation .level0.has-active > .level-top {
-    color: #0a4c8c !important;
+    background: rgba(255,255,255,0.1);
+    color: #fff !important;
 }
 
 /* ========== Main content ========== */
@@ -444,17 +601,15 @@ button.action.primary:hover {
     color: #0a4c8c;
 }
 
-/* ========== Logo area (match Topocentras header) ========== */
-.page-header .header.content {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-.page-header .logo {
+/* ========== Logo (exact same as reference) ========== */
+.page-header .header.content .logo {
     margin: 0;
+    flex-shrink: 0;
 }
 .page-header .logo img {
-    max-height: 50px;
+    max-height: 44px;
     width: auto;
+    display: block;
 }
 
 /* ========== Footer (dark bar like Topocentras) ========== */

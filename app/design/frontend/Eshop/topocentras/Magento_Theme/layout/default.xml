@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Topocentras-style theme layout - custom CSS and Catalog in nav
+ * Topocentras-style theme layout – header panel nav + custom CSS + catalog in nav
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -9,9 +9,13 @@
         <css src="css/topocentras-custom.css"/>
     </head>
     <body>
-        <!-- Catalog link in main nav (shows when categories exist; add fallback via template override if menu empty) -->
+        <!-- Top bar: light grey – Parduotuvės, Verslui, phone, hours | Užsakymo sekimas, Prisijungti -->
+        <referenceContainer name="header.panel">
+            <block class="Magento\Framework\View\Element\Template" name="topocentras.utility.bar" template="Magento_Theme::html/header-utility-bar.phtml" before="store_language"/>
+        </referenceContainer>
+        <!-- Blue nav: Prekių katalogas (darker) + Akcijos, Apple, Paslaugos, etc. (output first in topmenu) -->
         <referenceBlock name="catalog.topnav">
-            <block class="Magento\Framework\View\Element\Template" name="topocentras.catalog.link" template="Magento_Theme::html/catalog-menu-link.phtml" after="-"/>
+            <block class="Magento\Framework\View\Element\Template" name="topocentras.blue.nav.items" template="Magento_Theme::html/blue-nav-items.phtml" before="-"/>
         </referenceBlock>
     </body>
 </page>
