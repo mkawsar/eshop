@@ -1,0 +1,35 @@
+<?php
+/**
+ * Footer column: Susisiekite (phones, email, hours) with icons
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+?>
+<div class="footer-col footer-col-contact">
+    <h4 class="footer-col-title"><?= $block->escapeHtml(__('Susisiekite')) ?></h4>
+    <div class="footer-contact-list">
+        <p class="footer-contact-label"><?= $block->escapeHtml(__('Ekspertų linija - konsultacijos perkantiems')) ?></p>
+        <a href="tel:+37070050052" class="footer-contact-item footer-contact-phone">
+            <span class="footer-contact-icon footer-icon-phone" aria-hidden="true"></span>
+            +370 700 50052
+        </a>
+        <p class="footer-contact-label"><?= $block->escapeHtml(__('Nuotolinė konsultacija')) ?></p>
+        <p class="footer-contact-label"><?= $block->escapeHtml(__('Klientų aptarnavimo numeris')) ?></p>
+        <a href="tel:+37066000200" class="footer-contact-item footer-contact-phone">
+            <span class="footer-contact-icon footer-icon-phone" aria-hidden="true"></span>
+            +370 660 00200
+        </a>
+        <a href="mailto:info@topocentras.lt" class="footer-contact-item footer-contact-email">
+            <span class="footer-contact-icon footer-icon-email" aria-hidden="true"></span>
+            info@topocentras.lt
+        </a>
+        <p class="footer-contact-item footer-contact-hours">
+            <span class="footer-contact-icon footer-icon-clock" aria-hidden="true"></span>
+            <?= $block->escapeHtml(__('I-V 08:00 - 22:00')) ?>
+        </p>
+        <p class="footer-contact-item footer-contact-hours">
+            <span class="footer-contact-icon footer-icon-clock" aria-hidden="true"></span>
+            <?= $block->escapeHtml(__('VI-VII 09:00 - 17:00')) ?>
+        </p>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<?php
+/**
+ * Footer column: Bendraukime (social links)
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$facebookUrl = 'https://www.facebook.com/topocentras';
+$instagramUrl = 'https://www.instagram.com/topocentras';
+$tiktokUrl = 'https://www.tiktok.com/@topocentras';
+$youtubeUrl = 'https://www.youtube.com/topocentras';
+$linkedinUrl = 'https://www.linkedin.com/company/topocentras';
+?>
+<div class="footer-col footer-col-social">
+    <h4 class="footer-col-title"><?= $block->escapeHtml(__('Bendraukime')) ?></h4>
+    <div class="footer-social">
+        <a href="<?= $block->escapeUrl($facebookUrl) ?>" class="footer-social-link footer-social-fb" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <span class="footer-social-icon" aria-hidden="true">f</span>
+            <span><?= $block->escapeHtml(__('TOPO CENTRAS')) ?></span>
+        </a>
+        <div class="footer-social-icons">
+            <a href="<?= $block->escapeUrl($instagramUrl) ?>" class="footer-social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📷</a>
+            <a href="<?= $block->escapeUrl($tiktokUrl) ?>" class="footer-social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">♪</a>
+            <a href="<?= $block->escapeUrl($youtubeUrl) ?>" class="footer-social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">▶</a>
+            <a href="<?= $block->escapeUrl($linkedinUrl) ?>" class="footer-social-icon-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        </div>
+    </div>
+</div>

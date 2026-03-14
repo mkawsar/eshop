@@ -1,0 +1,28 @@
+<?php
+/**
+ * Footer column: Pirkimo informacija
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$links = [
+    ['url' => $block->getUrl('mokejimo-budai'), 'label' => __('Mokėjimo būdai')],
+    ['url' => $block->getUrl('pristatymo-salygos'), 'label' => __('Pristatymo sąlygos')],
+    ['url' => $block->getUrl('prekiu-garantija'), 'label' => __('Prekių garantija')],
+    ['url' => $block->getUrl('prekiu-grazinimas'), 'label' => __('Prekių grąžinimas')],
+    ['url' => $block->getUrl('taisykles'), 'label' => __('Taisyklės')],
+    ['url' => $block->getUrl('privatumo-politika'), 'label' => __('Privatumo politika')],
+    ['url' => $block->getUrl('kaip-pirkti'), 'label' => __('Kaip pirkti? Video instrukcijos')],
+    ['url' => $block->getUrl('sales/order/history'), 'label' => __('Užsakymo informacija')],
+    ['url' => $block->getUrl('duk'), 'label' => __('DUK')],
+    ['url' => $block->getUrl('prekiu-gidai'), 'label' => __('Prekių gidai')],
+    ['url' => $block->getUrl('video-apzvalgos'), 'label' => __('Produktų video apžvalgos')],
+];
+?>
+<div class="footer-col footer-col-purchase">
+    <h4 class="footer-col-title"><?= $block->escapeHtml(__('Pirkimo informacija')) ?></h4>
+    <ul class="footer-links">
+        <?php foreach ($links as $link): ?>
+            <li><a href="<?= $block->escapeUrl($link['url']) ?>"><?= $block->escapeHtml($link['label']) ?></a></li>
+        <?php endforeach; ?>
+    </ul>
+</div>

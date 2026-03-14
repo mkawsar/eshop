@@ -2,6 +2,7 @@
 <!--
 /**
  * Topocentras-style theme layout – header panel nav + custom CSS + catalog in nav
+ * Footer: full-width dark blue, top row (loyalty + newsletter), 4 link columns, copyright
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
@@ -18,5 +19,38 @@
         <referenceBlock name="catalog.topnav">
             <block class="Magento\Framework\View\Element\Template" name="topocentras.blue.nav.items" template="Magento_Theme::html/blue-nav-items.phtml" before="-"/>
         </referenceBlock>
+
+        <!-- ========== TOPOCENTRAS FOOTER (full-width dark blue, 4 columns) ========== -->
+        <referenceContainer name="footer">
+            <referenceBlock name="form.subscribe" remove="true"/>
+            <referenceBlock name="footer_links" remove="true"/>
+            <!-- Top section: Loyalty (logo + Join Now) | Newsletter -->
+            <block class="Magento\Framework\View\Element\Template"
+                   name="topocentras.footer.top"
+                   template="Magento_Theme::html/footer-top.phtml">
+                <block class="Magento\Framework\View\Element\FormKey" name="formkey"/>
+            </block>
+            <!-- Four columns: About | Shopping info | Contact | Social -->
+            <container name="topocentras.footer.columns"
+                       htmlTag="div"
+                       htmlClass="footer-columns">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.footer.col.about"
+                       template="Magento_Theme::html/footer-column-about.phtml"/>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.footer.col.purchase"
+                       template="Magento_Theme::html/footer-column-purchase.phtml"/>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.footer.col.contact"
+                       template="Magento_Theme::html/footer-column-contact.phtml"/>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.footer.col.social"
+                       template="Magento_Theme::html/footer-column-social.phtml"/>
+            </container>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="topocentras.footer.bottom"
+                   template="Magento_Theme::html/footer-bottom.phtml"
+                   after="topocentras.footer.columns"/>
+        </referenceContainer>
     </body>
 </page>

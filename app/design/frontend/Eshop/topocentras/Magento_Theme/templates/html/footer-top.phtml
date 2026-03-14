@@ -1,0 +1,34 @@
+<?php
+/**
+ * Footer top section: two columns – Loyalty (logo + title + Join Now) | Newsletter.
+ * Dark theme: white text, logo image, orange Subscribe button.
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$subscribeUrl = $block->getUrl('newsletter/subscriber/new');
+$loyaltyLogoUrl = 'https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=85/media/wysiwyg/ltb/tk_ftr.png';
+?>
+<div class="footer-top-row">
+    <div class="footer-top-loyalty">
+        <div class="footer-loyalty-logo">
+            <img src="<?= $block->escapeUrl($loyaltyLogoUrl) ?>" alt="<?= $block->escapeHtmlAttr(__('TOPO KLUBAS')) ?>" loading="lazy" />
+        </div>
+        <h3 class="footer-loyalty-title"><?= $block->escapeHtml(__('Benefits Program for Smart Customers')) ?></h3>
+        <a href="<?= $block->escapeUrl($block->getUrl('customer/account/create')) ?>" class="footer-btn-join"><?= $block->escapeHtml(__('Join Now')) ?></a>
+    </div>
+    <div class="footer-top-newsletter">
+        <h4 class="footer-newsletter-title"><?= $block->escapeHtml(__('Get the Best Offers First')) ?></h4>
+        <p class="footer-newsletter-desc"><?= $block->escapeHtml(__('Get hot deals, game news, events and discounts delivered to your inbox.')) ?></p>
+        <form class="form footer-newsletter-form" action="<?= $block->escapeUrl($subscribeUrl) ?>" method="post" id="footer-newsletter-validate-detail">
+            <?= /* @noEscape */ $block->getChildHtml('formkey') ?>
+            <div class="footer-newsletter-field">
+                <input type="email" name="email" id="footer-newsletter-email" class="input-text" placeholder="<?= $block->escapeHtmlAttr(__('Your email')) ?>" data-validate="{required:true, 'validate-email':true}" />
+                <button type="submit" class="footer-btn-subscribe" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>">
+                    <span class="footer-btn-subscribe-icon" aria-hidden="true">→</span>
+                    <?= $block->escapeHtml(__('Subscribe')) ?>
+                </button>
+            </div>
+            <p class="footer-newsletter-privacy"><?= $block->escapeHtml(__('You can unsubscribe at any time. By subscribing you agree to our Privacy Policy.')) ?></p>
+        </form>
+    </div>
+</div>
