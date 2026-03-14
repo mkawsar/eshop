@@ -33,10 +33,6 @@
                            name="topocentras.product.cards"
                            template="Magento_Theme::html/product-cards.phtml"
                            after="topocentras.hero.wrapper"/>
-                    <block class="Magento\Framework\View\Element\Template"
-                           name="topocentras.home.categories.row"
-                           template="Magento_Theme::html/home-categories-row.phtml"
-                           after="topocentras.product.cards"/>
                     <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
                            name="homepage.products.list"
                            template="Magento_Catalog::product/widget/new/content/new_grid.phtml"

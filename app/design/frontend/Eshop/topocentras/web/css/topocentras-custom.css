@@ -737,57 +737,6 @@ button.action.primary:hover {
     color: #666;
 }
 
-/* ========== Homepage category circles row (under hero) ========== */
-.home-categories-row {
-    margin-bottom: 24px;
-}
-.home-categories-row .categories-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 0 8px;
-}
-.home-categories-row .owl-stage-outer {
-    overflow-x: auto;
-}
-.home-categories-row .owl-stage {
-    display: flex;
-    gap: 12px;
-}
-.home-categories-row .item-wrapper {
-    flex: 0 0 auto;
-}
-.home-categories-row .category-link {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-    text-align: center;
-    color: #404040;
-    text-decoration: none;
-    min-width: 90px;
-}
-.home-categories-row .category-image-wrap img,
-.home-categories-row .category-placeholder-circle {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 3px 10px rgba(51,51,51,0.07);
-    object-fit: contain;
-}
-.home-categories-row .category-placeholder-circle {
-    display: inline-block;
-}
-.home-categories-row .category-title-t {
-    font-size: 13px;
-    line-height: 1.3;
-}
-.home-categories-row .category-link:hover .category-title-t {
-    color: #0a509b;
-}
-
 /* ========== 4 product category cards (Smart Phones, Large Appliances, TV, Cleaning) ========== */
 .topocentras-product-cards {
     margin-bottom: 2rem;
