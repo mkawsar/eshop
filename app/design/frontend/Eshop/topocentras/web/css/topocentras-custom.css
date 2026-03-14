@@ -891,6 +891,36 @@ button.action.primary:hover {
     padding-right: 16px;
 }
 
+/* Footer link text – white on dark blue (override parent theme) */
+.page-footer a,
+.page-footer .footer-links a,
+.page-footer .footer-col a,
+.page-footer .footer-columns a,
+.page-footer .footer-contact-list a,
+.page-footer .footer-contact-phone,
+.page-footer .footer-contact-email,
+.page-footer .footer-social-link,
+.page-footer .footer-social-icon-link {
+    color: #fff !important;
+}
+.page-footer a:hover,
+.page-footer .footer-links a:hover,
+.page-footer .footer-col a:hover,
+.page-footer .footer-columns a:hover,
+.page-footer .footer-contact-phone:hover,
+.page-footer .footer-contact-email:hover,
+.page-footer .footer-social-link:hover,
+.page-footer .footer-social-icon-link:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-decoration: underline;
+}
+.page-footer .footer-col-title,
+.page-footer .footer-contact-list .footer-contact-label,
+.page-footer .footer-contact-list .footer-contact-item,
+.page-footer .footer-contact-hours {
+    color: #fff !important;
+}
+
 /* Footer top row: Loyalty (logo + Join Now) | Newsletter */
 .footer-top-row {
     display: flex;
