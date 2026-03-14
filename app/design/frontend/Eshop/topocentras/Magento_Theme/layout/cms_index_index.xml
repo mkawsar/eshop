@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Homepage layout: Top Navigation + Main Layout (Sidebar Menu + Homepage Content).
- * Structure: top.navigation block, then main-layout container with sidebar.menu and homepage.content.
+ * Homepage layout: Top Navigation + Main Layout (Sidebar + Hero + Promo) + Full-width Product Grid.
+ * Sidebar height ends at promo row; product grid is full width below.
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
     <body>
         <referenceBlock name="page.main.title" remove="true"/>
-        <!-- Top Navigation (full-width blue bar) -->
         <referenceContainer name="content">
-            <!-- Main layout: sidebar + content -->
+            <!-- Main layout: sidebar + hero + product cards (promo); sidebar ends here -->
             <container name="main.layout" htmlTag="div" htmlClass="main-layout">
                 <block class="Magento\Framework\View\Element\Template"
                        name="sidebar.menu"
@@ -33,19 +32,21 @@
                            name="topocentras.product.cards"
                            template="Magento_Theme::html/product-cards.phtml"
                            after="topocentras.hero.wrapper"/>
-                    <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
-                           name="homepage.products.list"
-                           template="Magento_Catalog::product/widget/new/content/new_grid.phtml"
-                           after="topocentras.home.categories.row">
-                        <arguments>
-                            <argument name="display_type" xsi:type="string">all_products</argument>
-                            <argument name="products_count" xsi:type="number">12</argument>
-                            <argument name="products_per_page" xsi:type="number">12</argument>
-                            <argument name="show_pager" xsi:type="boolean">false</argument>
-                            <argument name="title" xsi:type="string" translate="true">Products</argument>
-                        </arguments>
-                    </block>
                 </container>
+            </container>
+            <!-- Full-width product grid (below sidebar + hero + promo) -->
+            <container name="homepage.products.wrapper" htmlTag="div" htmlClass="homepage-products-fullwidth">
+                <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
+                       name="homepage.products.list"
+                       template="Magento_Catalog::product/widget/new/content/new_grid.phtml">
+                    <arguments>
+                        <argument name="display_type" xsi:type="string">all_products</argument>
+                        <argument name="products_count" xsi:type="number">12</argument>
+                        <argument name="products_per_page" xsi:type="number">12</argument>
+                        <argument name="show_pager" xsi:type="boolean">false</argument>
+                        <argument name="title" xsi:type="string" translate="true">Products</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
     </body>

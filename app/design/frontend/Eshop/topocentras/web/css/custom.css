@@ -63,6 +63,14 @@
     padding: 0 16px;
 }
 
+/* Full-width product grid section (below sidebar + hero + promo) */
+.homepage-products-fullwidth {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
 /* ========== Sidebar ========== */
 .sidebar {
     width: 260px;
