@@ -1,15 +1,13 @@
 <?php
 /**
- * Topocentras: blue nav bar. Output custom nav items first (Prekių katalogas, Akcijos, etc.), then category menu.
+ * Topocentras: blue nav bar. Custom nav items only (Prekių katalogas, Akcijos, etc.).
+ * Category dropdown / mega-menu section removed.
  *
  * @var $block \Magento\Theme\Block\Html\Topmenu
  */
-$columnsLimit = $block->getColumnsLimit() ?: 0;
-$_menuHtml = $block->getHtml('level-top', 'submenu', $columnsLimit);
 ?>
 <nav class="navigation" data-action="navigation">
-    <ul class="topocentras-blue-nav" data-mage-init='{"menu":{"responsive":true, "expanded":true, "position":{"my":"left top","at":"left bottom"}}}'>
+    <ul class="topocentras-blue-nav">
         <?= $block->getChildHtml() ?>
-        <?= /* @noEscape */ $_menuHtml ?>
     </ul>
 </nav>

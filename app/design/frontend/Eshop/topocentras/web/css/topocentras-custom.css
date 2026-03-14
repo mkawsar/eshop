@@ -225,6 +225,13 @@ button.action.primary:hover {
 .nav-sections .topocentras-blue-nav > li:not(.nav-catalog-trigger) {
     border-left: 1px solid rgba(255,255,255,0.35) !important;
 }
+/* Dropdown / mega-menu section removed – hide any submenus under blue nav */
+.nav-sections .topocentras-blue-nav .submenu,
+.nav-sections .topocentras-blue-nav .level1,
+.nav-sections .topocentras-blue-nav ul ul,
+.topocentras-mega-menu {
+    display: none !important;
+}
 /* Nav icons (small squares/circles) */
 .nav-icon {
     display: inline-block;
