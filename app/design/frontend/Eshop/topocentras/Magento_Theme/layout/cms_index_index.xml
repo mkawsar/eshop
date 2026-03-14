@@ -10,10 +10,6 @@
         <referenceBlock name="page.main.title" remove="true"/>
         <!-- Top Navigation (full-width blue bar) -->
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template"
-                   name="top.navigation"
-                   template="Magento_Theme::top-nav.phtml"
-                   before="-"/>
             <!-- Main layout: sidebar + content -->
             <container name="main.layout" htmlTag="div" htmlClass="main-layout">
                 <block class="Magento\Framework\View\Element\Template"
