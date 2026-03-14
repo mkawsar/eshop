@@ -288,23 +288,6 @@ button.action.primary:hover {
     visibility: visible !important;
     min-height: 200px;
 }
-.columns {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0;
-    max-width: 100%;
-}
-.sidebar.sidebar-main {
-    width: 260px;
-    min-width: 260px;
-    flex-shrink: 0;
-    order: -1; /* Left sidebar: appear first visually */
-    background: #fff;
-    border: 1px solid #e8e8e8;
-    border-radius: 4px;
-    padding: 0; /* match flat nav in reference */
-    margin-right: 1.5rem;
-}
 .sidebar.sidebar-main .block {
     border: 0;
     margin-bottom: 0;
@@ -446,10 +429,6 @@ button.action.primary:hover {
     text-decoration: none;
     font-size: 13px;
     transition: background 0.15s ease, color 0.15s ease;
-}
-.sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-item a:hover {
-    background: #f8f9fa;
-    color: #0a4c8c;
 }
 .sidebar.sidebar-main .topocentras-catalog-menu .catalog-menu-icon {
     width: 20px;
