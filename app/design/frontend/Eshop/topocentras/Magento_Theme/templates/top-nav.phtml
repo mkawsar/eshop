@@ -1,0 +1,30 @@
+<?php
+/**
+ * Full-width blue top navigation bar.
+ * Each item: icon, label, hover effect.
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$catalogUrl = $block->getUrl('catalog');
+$saleUrl = $block->getUrl('catalog'); // or a sale/category URL
+$accountUrl = $block->getUrl('customer/account');
+$historyUrl = $block->getUrl('sales/order/history');
+
+$items = [
+    ['label' => __('Prekių katalogas'), 'url' => $catalogUrl, 'icon' => 'nav-icon-catalog'],
+    ['label' => __('Akcijos ir pasiūlymai'), 'url' => $saleUrl, 'icon' => 'nav-icon-percent'],
+    ['label' => __('Apple parduotuvė'), 'url' => $catalogUrl, 'icon' => 'nav-icon-apple'],
+    ['label' => __('Paslaugos'), 'url' => $accountUrl, 'icon' => 'nav-icon-gear'],
+    ['label' => __('Prekės į minusą'), 'url' => $saleUrl, 'icon' => 'nav-icon-tag'],
+    ['label' => __('Topo klubo pasiūlymai'), 'url' => $catalogUrl, 'icon' => 'nav-icon-star'],
+    ['label' => __('Dovanų kuponas'), 'url' => $historyUrl, 'icon' => 'nav-icon-gift'],
+];
+?>
+<nav class="top-nav" aria-label="<?= $block->escapeHtmlAttr(__('Main navigation')) ?>">
+    <?php foreach ($items as $item): ?>
+        <a href="<?= $block->escapeUrl($item['url']) ?>" class="top-nav-item">
+            <span class="top-nav-icon <?= $block->escapeHtmlAttr($item['icon']) ?>" aria-hidden="true"></span>
+            <span><?= $block->escapeHtml($item['label']) ?></span>
+        </a>
+    <?php endforeach; ?>
+</nav>

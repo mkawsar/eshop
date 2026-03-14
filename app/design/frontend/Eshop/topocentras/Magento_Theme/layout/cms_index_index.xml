@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Homepage layout: Top Navigation + Main Layout (Sidebar Menu + Homepage Content).
+ * Structure: top.navigation block, then main-layout container with sidebar.menu and homepage.content.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="1column">
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <!-- Top Navigation (full-width blue bar) -->
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="top.navigation"
+                   template="Magento_Theme::top-nav.phtml"
+                   before="-"/>
+            <!-- Main layout: sidebar + content -->
+            <container name="main.layout" htmlTag="div" htmlClass="main-layout">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="sidebar.menu"
+                       template="Magento_Theme::sidebar-menu.phtml"/>
+                <container name="homepage.content" htmlTag="div" htmlClass="homepage-content">
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="topocentras.hero.wrapper"
+                           template="Magento_Theme::html/hero-slider-with-placeholder.phtml">
+                        <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.hero.slide.1">
+                            <arguments><argument name="identifier" xsi:type="string">topocentras-hero-slide-1</argument></arguments>
+                        </block>
+                        <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.hero.slide.2">
+                            <arguments><argument name="identifier" xsi:type="string">topocentras-hero-slide-2</argument></arguments>
+                        </block>
+                        <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.hero.slide.3">
+                            <arguments><argument name="identifier" xsi:type="string">topocentras-hero-slide-3</argument></arguments>
+                        </block>
+                    </block>
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="topocentras.product.cards"
+                           template="Magento_Theme::html/product-cards.phtml"
+                           after="topocentras.hero.wrapper"/>
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="topocentras.home.categories.row"
+                           template="Magento_Theme::html/home-categories-row.phtml"
+                           after="topocentras.product.cards"/>
+                    <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
+                           name="homepage.products.list"
+                           template="Magento_Catalog::product/widget/new/content/new_grid.phtml"
+                           after="topocentras.home.categories.row">
+                        <arguments>
+                            <argument name="display_type" xsi:type="string">all_products</argument>
+                            <argument name="products_count" xsi:type="number">12</argument>
+                            <argument name="products_per_page" xsi:type="number">12</argument>
+                            <argument name="show_pager" xsi:type="boolean">false</argument>
+                            <argument name="title" xsi:type="string" translate="true">Products</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

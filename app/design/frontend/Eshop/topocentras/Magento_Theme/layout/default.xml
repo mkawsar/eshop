@@ -9,6 +9,7 @@
         <css src="css/topocentras-custom.css"/>
     </head>
     <body>
+        <update handle="default_head_blocks"/>
         <!-- Top bar: light grey – Parduotuvės, Verslui, phone, hours | Užsakymo sekimas, Prisijungti -->
         <referenceContainer name="header.panel">
             <block class="Magento\Framework\View\Element\Template" name="topocentras.utility.bar" template="Magento_Theme::html/header-utility-bar.phtml" before="store_language"/>

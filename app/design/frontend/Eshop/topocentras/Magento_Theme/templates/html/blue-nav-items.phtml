@@ -1,7 +1,7 @@
 <?php
 /**
- * Topocentras blue nav bar items: Prekių katalogas (darker) + Akcijos, Apple, Paslaugos, etc.
- * Renders as <li> items; first one gets .nav-catalog-trigger for darker blue.
+ * Top blue bar nav: Product Catalog (darker) + Promotions, Apple Store, Services, etc.
+ * Each item has icon + text. English labels.
  *
  * @var $block \Magento\Framework\View\Element\Template
  */
@@ -19,42 +19,42 @@ $saleUrl = $block->getData('sale_url') ?: $catalogUrl;
 <li class="level0 nav-0 nav-catalog-trigger first">
     <a href="<?= $block->escapeUrl($catalogUrl) ?>" class="level-top" data-action="toggle-catalog-sidebar">
         <span class="nav-catalog-hamburger"></span>
-        <span><?= $block->escapeHtml(__('Prekių katalogas')) ?></span>
+        <span><?= $block->escapeHtml(__('Product Catalog')) ?></span>
     </a>
 </li>
-<li class="level0 nav-akcijos">
+<li class="level0 nav-promotions">
     <a href="<?= $block->escapeUrl($saleUrl) ?>" class="level-top">
         <span class="nav-icon nav-icon-percent"></span>
-        <span><?= $block->escapeHtml(__('Akcijos ir pasiūlymai')) ?></span>
+        <span><?= $block->escapeHtml(__('Promotions')) ?></span>
     </a>
 </li>
 <li class="level0 nav-apple">
     <a href="<?= $block->escapeUrl($block->getUrl('catalog/category/view', ['id' => $rootCategoryId])) ?>" class="level-top">
         <span class="nav-icon nav-icon-phone"></span>
-        <span><?= $block->escapeHtml(__('Apple parduotuvė')) ?></span>
+        <span><?= $block->escapeHtml(__('Apple Store')) ?></span>
     </a>
 </li>
-<li class="level0 nav-paslaugos">
+<li class="level0 nav-services">
     <a href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>" class="level-top">
         <span class="nav-icon nav-icon-gear"></span>
-        <span><?= $block->escapeHtml(__('Paslaugos')) ?></span>
+        <span><?= $block->escapeHtml(__('Services')) ?></span>
     </a>
 </li>
-<li class="level0 nav-prekes-minusa">
+<li class="level0 nav-discounted">
     <a href="<?= $block->escapeUrl($saleUrl) ?>" class="level-top">
         <span class="nav-icon nav-icon-diamond"></span>
-        <span><?= $block->escapeHtml(__('Prekės minusa')) ?></span>
+        <span><?= $block->escapeHtml(__('Discounted Products')) ?></span>
     </a>
 </li>
-<li class="level0 nav-topo-klubas">
+<li class="level0 nav-club">
     <a href="<?= $block->escapeUrl($catalogUrl) ?>" class="level-top">
         <span class="nav-icon nav-icon-star"></span>
-        <span><?= $block->escapeHtml(__('Topo Klubo pasiūlymai')) ?></span>
+        <span><?= $block->escapeHtml(__('Club Offers')) ?></span>
     </a>
 </li>
-<li class="level0 nav-dovanu-kuponas last">
+<li class="level0 nav-gift-coupons last">
     <a href="<?= $block->escapeUrl($block->getUrl('sales/order/history')) ?>" class="level-top">
         <span class="nav-icon nav-icon-gift"></span>
-        <span><?= $block->escapeHtml(__('Dovanų kuponas')) ?></span>
+        <span><?= $block->escapeHtml(__('Gift Coupons')) ?></span>
     </a>
 </li>

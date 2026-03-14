@@ -1,0 +1,70 @@
+<?php
+/**
+ * Homepage hero slider: uses 1..3 CMS blocks or placeholders.
+ *
+ * CMS block identifiers:
+ * - topocentras-hero-slide-1
+ * - topocentras-hero-slide-2
+ * - topocentras-hero-slide-3
+ *
+ * Each CMS block can contain your full slide markup (image + text + button).
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+
+/** @var \Magento\Framework\View\Element\Template $block */
+$slide1 = $block->getChildHtml('topocentras.hero.slide.1', false);
+$slide2 = $block->getChildHtml('topocentras.hero.slide.2', false);
+$slide3 = $block->getChildHtml('topocentras.hero.slide.3', false);
+
+$slides = [$slide1, $slide2, $slide3];
+$hasAny = false;
+foreach ($slides as $s) {
+    if (trim((string)$s)) { $hasAny = true; break; }
+}
+?>
+
+<section class="topocentras-home-slider" aria-label="<?= $block->escapeHtmlAttr(__('Homepage slider')) ?>">
+    <div class="topocentras-home-slider__viewport">
+        <?php if ($hasAny): ?>
+            <?php foreach ($slides as $i => $html): ?>
+                <?php if (!trim((string)$html)) continue; ?>
+                <div class="topocentras-home-slider__slide<?= $i === 0 ? ' is-active' : '' ?>" data-slide aria-hidden="<?= $i === 0 ? 'false' : 'true' ?>">
+                    <?= /* @noEscape */ $html ?>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="topocentras-home-slider__slide is-active" data-slide aria-hidden="false">
+                <div class="topocentras-hero hero-placeholder">
+                    <div class="hero-grid">
+                        <div class="hero-left">
+                            <div class="hero-brand">WATCH SERIES 11</div>
+                            <h2 class="hero-title"><?= $block->escapeHtml(__('Galingas treniruočių partneris.')) ?></h2>
+                        </div>
+                        <div class="hero-center">
+                            <div class="hero-image-placeholder"></div>
+                        </div>
+                        <div class="hero-right">
+                            <div class="hero-price-badge">
+                                <div class="badge-title"><?= $block->escapeHtml(__('TOPO KLUBO KAINA')) ?></div>
+                                <div class="badge-price">389 €</div>
+                                <div class="badge-old">459 €</div>
+                            </div>
+                            <a class="hero-cta" href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>">
+                                <?= $block->escapeHtml(__('Buy')) ?>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-hint">
+                        <?= $block->escapeHtml(__('Add CMS blocks "topocentras-hero-slide-1..3" (Content → Blocks) to replace this placeholder.')) ?>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <button class="topocentras-home-slider__prev" type="button" aria-label="<?= $block->escapeHtmlAttr(__('Previous')) ?>"></button>
+    <button class="topocentras-home-slider__next" type="button" aria-label="<?= $block->escapeHtmlAttr(__('Next')) ?>"></button>
+    <div class="topocentras-home-slider__dots" aria-hidden="true"></div>
+</section>
+

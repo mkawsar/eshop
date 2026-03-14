@@ -1,63 +1,13 @@
 <?xml version="1.0"?>
 <!--
 /**
- * Homepage: Topocentras layout – left sidebar (categories), hero, 4 promo banners, products.
- * Sidebar shows catalog categories; hero and promos use CMS blocks or placeholders.
+ * Homepage: structure is defined in Magento_Theme/layout/cms_index_index.xml
+ * (top nav, main-layout with sidebar + homepage.content). This file only ensures
+ * the CMS index handle is used; no duplicate blocks.
  */
 -->
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" layout="2columns-left">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="page.main.title" remove="true"/>
-        <!-- Left sidebar: category list from catalog (Prekių katalogas style) -->
-        <referenceContainer name="sidebar.main">
-            <block class="Magento\Framework\View\Element\Template" name="topocentras.sidebar.categories" template="Magento_Theme::html/sidebar-categories.phtml"/>
-        </referenceContainer>
-
-        <!-- Main: hero + promo row + products -->
-        <referenceContainer name="content">
-            <!-- Hero: CMS block or placeholder -->
-            <block class="Magento\Framework\View\Element\Template" name="topocentras.hero.wrapper" template="Magento_Theme::html/hero-with-placeholder.phtml" before="-">
-                <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.hero">
-                    <arguments>
-                        <argument name="identifier" xsi:type="string">topocentras-hero</argument>
-                    </arguments>
-                </block>
-            </block>
-            <!-- 4 promo banners: CMS blocks or placeholders -->
-            <block class="Magento\Framework\View\Element\Template" name="topocentras.promo.banners.wrapper" template="Magento_Theme::html/promo-banners-with-placeholder.phtml" after="topocentras.hero.wrapper">
-                <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.promo.1">
-                    <arguments>
-                        <argument name="identifier" xsi:type="string">topocentras-promo-1</argument>
-                    </arguments>
-                </block>
-                <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.promo.2">
-                    <arguments>
-                        <argument name="identifier" xsi:type="string">topocentras-promo-2</argument>
-                    </arguments>
-                </block>
-                <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.promo.3">
-                    <arguments>
-                        <argument name="identifier" xsi:type="string">topocentras-promo-3</argument>
-                    </arguments>
-                </block>
-                <block class="Magento\Cms\Block\BlockByIdentifier" name="topocentras.promo.4">
-                    <arguments>
-                        <argument name="identifier" xsi:type="string">topocentras-promo-4</argument>
-                    </arguments>
-                </block>
-            </block>
-            <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
-                   name="homepage.products.list"
-                   template="Magento_Catalog::product/widget/new/content/new_grid.phtml"
-                   after="topocentras.promo.banners.wrapper">
-                <arguments>
-                    <argument name="display_type" xsi:type="string">all_products</argument>
-                    <argument name="products_count" xsi:type="number">12</argument>
-                    <argument name="products_per_page" xsi:type="number">12</argument>
-                    <argument name="show_pager" xsi:type="boolean">false</argument>
-                    <argument name="title" xsi:type="string" translate="true">Products</argument>
-                </arguments>
-            </block>
-        </referenceContainer>
+        <!-- Content blocks are in Magento_Theme::cms_index_index.xml inside homepage.content -->
     </body>
 </page>

@@ -1,0 +1,35 @@
+<?php
+/**
+ * Homepage bottom section: 4 product category cards (Smart Phones, Large Appliances,
+ * Televisions, Cleaning Products). Each card: image, yellow label, hover animation.
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$storeManager = $objectManager->get(\Magento\Store\Model\StoreManagerInterface::class);
+$mediaUrl = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+$catalogUrl = $block->getUrl('catalog');
+
+$cards = [
+    ['title' => __('Smart Phones'), 'url' => $catalogUrl, 'image' => '', 'slug' => 'phones'],
+    ['title' => __('Large Appliances'), 'url' => $catalogUrl, 'image' => '', 'slug' => 'appliances'],
+    ['title' => __('Televisions'), 'url' => $catalogUrl, 'image' => '', 'slug' => 'tv'],
+    ['title' => __('Cleaning Products'), 'url' => $catalogUrl, 'image' => '', 'slug' => 'cleaning'],
+];
+?>
+<section class="topocentras-product-cards" aria-label="<?= $block->escapeHtmlAttr(__('Shop by category')) ?>">
+    <div class="product-cards-grid">
+        <?php foreach ($cards as $card): ?>
+            <a href="<?= $block->escapeUrl($card['url']) ?>" class="product-card product-card--<?= $block->escapeHtmlAttr($card['slug']) ?>">
+                <span class="product-card__image-wrap">
+                    <?php if (!empty($card['image'])): ?>
+                        <img src="<?= $block->escapeUrl($card['image']) ?>" alt="<?= $block->escapeHtmlAttr($card['title']) ?>" class="product-card__image" loading="lazy">
+                    <?php else: ?>
+                        <span class="product-card__placeholder" aria-hidden="true"></span>
+                    <?php endif; ?>
+                </span>
+                <span class="product-card__label"><?= $block->escapeHtml($card['title']) ?></span>
+            </a>
+        <?php endforeach; ?>
+    </div>
+</section>

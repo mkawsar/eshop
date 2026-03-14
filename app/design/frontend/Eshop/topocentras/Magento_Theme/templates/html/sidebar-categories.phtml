@@ -1,55 +1,60 @@
 <?php
 /**
- * Left sidebar: Topocentras-style catalog menu (header + category list with icons).
+ * Left sidebar: vertical category menu with icons (Topocentras-style).
+ * Fixed list with hover highlight. Uses catalog root for base URL; links can be
+ * overridden via layout or CMS. Icon classes: .cat-icon-* for each row.
+ *
  * @var $block \Magento\Framework\View\Element\Template
  */
 $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
 $storeManager = $objectManager->get(\Magento\Store\Model\StoreManagerInterface::class);
 $categoryRepository = $objectManager->get(\Magento\Catalog\Api\CategoryRepositoryInterface::class);
 $rootId = (int) $storeManager->getStore()->getRootCategoryId();
+$baseUrl = $block->getUrl('catalog');
 try {
     $rootCategory = $categoryRepository->get($rootId);
-} catch (\Exception $e) {
-    return;
-}
-$children = $rootCategory->getChildrenCategories();
+    $baseUrl = $rootCategory->getUrl();
+} catch (\Exception $e) {}
+
+$categories = [
+    ['name' => __('Phones, Watches, Photo'), 'icon' => 'cat-icon-phone', 'url' => $baseUrl],
+    ['name' => __('Computer Technology'), 'icon' => 'cat-icon-laptop', 'url' => $baseUrl],
+    ['name' => __('Kitchen Appliances'), 'icon' => 'cat-icon-kitchen', 'url' => $baseUrl],
+    ['name' => __('Home Appliances'), 'icon' => 'cat-icon-home', 'url' => $baseUrl],
+    ['name' => __('TV and Video'), 'icon' => 'cat-icon-tv', 'url' => $baseUrl],
+    ['name' => __('Audio Equipment'), 'icon' => 'cat-icon-audio', 'url' => $baseUrl],
+    ['name' => __('Gaming (PS5, Xbox)'), 'icon' => 'cat-icon-gaming', 'url' => $baseUrl],
+    ['name' => __('Leisure / Outdoor'), 'icon' => 'cat-icon-outdoor', 'url' => $baseUrl],
+    ['name' => __('Sports & Health'), 'icon' => 'cat-icon-sports', 'url' => $baseUrl],
+    ['name' => __('Beauty & Hygiene'), 'icon' => 'cat-icon-beauty', 'url' => $baseUrl],
+    ['name' => __('Garden Equipment'), 'icon' => 'cat-icon-garden', 'url' => $baseUrl],
+    ['name' => __('Kids Toys'), 'icon' => 'cat-icon-toys', 'url' => $baseUrl],
+    ['name' => __('Smart Home'), 'icon' => 'cat-icon-smart', 'url' => $baseUrl],
+    ['name' => __('Car Accessories'), 'icon' => 'cat-icon-car', 'url' => $baseUrl],
+];
 ?>
 <div class="topocentras-catalog-menu block">
     <div class="catalog-menu-header">
         <span class="catalog-menu-header-accent"></span>
         <div class="catalog-menu-title">
             <span class="catalog-menu-hamburger" aria-hidden="true"></span>
-            <span><?= $block->escapeHtml(__('Prekių katalogas')) ?></span>
+            <span><?= $block->escapeHtml(__('Product Catalog')) ?></span>
         </div>
-        <a href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>" class="catalog-menu-promo" title="<?= $block->escapeHtmlAttr(__('Akcijos ir pasiūlymai')) ?>">
+        <a href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>" class="catalog-menu-promo" title="<?= $block->escapeHtmlAttr(__('Promotions')) ?>">
             <span class="catalog-menu-promo-icon" aria-hidden="true">%</span>
-            <span><?= $block->escapeHtml(__('Akcijos ir pasiūlymai')) ?></span>
+            <span><?= $block->escapeHtml(__('Promotions')) ?></span>
         </a>
     </div>
     <div class="catalog-menu-list">
-        <?php if ($children && $children->count()): ?>
-            <ol class="items">
-                <?php /** @var \Magento\Catalog\Model\Category $child */ ?>
-                <?php foreach ($children as $child): ?>
-                    <?php if ($child->getIsActive()): ?>
-                        <li class="item catalog-menu-item">
-                            <a href="<?= $block->escapeUrl($child->getUrl()) ?>">
-                                <span class="catalog-menu-icon" aria-hidden="true"></span>
-                                <span class="catalog-menu-label"><?= $block->escapeHtml($child->getName()) ?></span>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </ol>
-        <?php else: ?>
-            <ul class="items">
+        <ul class="items">
+            <?php foreach ($categories as $cat): ?>
                 <li class="item catalog-menu-item">
-                    <a href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>">
-                        <span class="catalog-menu-icon" aria-hidden="true"></span>
-                        <span class="catalog-menu-label"><?= $block->escapeHtml(__('Catalog')) ?></span>
+                    <a href="<?= $block->escapeUrl($cat['url']) ?>">
+                        <span class="catalog-menu-icon <?= $block->escapeHtmlAttr($cat['icon']) ?>" aria-hidden="true"></span>
+                        <span class="catalog-menu-label"><?= $block->escapeHtml($cat['name']) ?></span>
                     </a>
                 </li>
-            </ul>
-        <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
     </div>
 </div>

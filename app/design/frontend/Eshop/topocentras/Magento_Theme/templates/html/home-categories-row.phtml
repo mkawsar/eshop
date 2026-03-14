@@ -1,0 +1,64 @@
+<?php
+/**
+ * Homepage horizontal category row: circular images and labels (Topocentras-style).
+ *
+ * Uses first-level children of the store root category.
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+/** @var \Magento\Store\Model\StoreManagerInterface $storeManager */
+$storeManager = $objectManager->get(\Magento\Store\Model\StoreManagerInterface::class);
+/** @var \Magento\Catalog\Api\CategoryRepositoryInterface $categoryRepository */
+$categoryRepository = $objectManager->get(\Magento\Catalog\Api\CategoryRepositoryInterface::class);
+
+$rootId = (int) $storeManager->getStore()->getRootCategoryId();
+try {
+    $rootCategory = $categoryRepository->get($rootId);
+} catch (\Exception $e) {
+    return;
+}
+
+$level1 = $rootCategory->getChildrenCategories();
+if (!$level1 || !$level1->count()) {
+    return;
+}
+
+$mediaUrl = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+?>
+
+<div class="home-categories-row imagesContainer-desk">
+    <div class="categories-container">
+        <div class="owl-stage-outer">
+            <div class="owl-stage first-page">
+                <?php foreach ($level1 as $category): ?>
+                    <?php if (!$category->getIsActive()) continue; ?>
+                    <?php
+                    $image = $category->getImageUrl() ?: '';
+                    if (!$image && $category->getImage()) {
+                        $image = $mediaUrl . 'catalog/category/' . ltrim($category->getImage(), '/');
+                    }
+                    ?>
+                    <div class="owl-item item-wrapper">
+                        <a href="<?= $block->escapeUrl($category->getUrl()) ?>"
+                           class="category-link">
+                            <span class="category-image-wrap">
+                                <?php if ($image): ?>
+                                    <img src="<?= $block->escapeUrl($image) ?>"
+                                         alt="<?= $block->escapeHtmlAttr($category->getName()) ?>">
+                                <?php else: ?>
+                                    <span class="category-placeholder-circle"></span>
+                                <?php endif; ?>
+                            </span>
+                            <span class="category-title-t">
+                                <?= $block->escapeHtml($category->getName()) ?>
+                            </span>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</div>
+

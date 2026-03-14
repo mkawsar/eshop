@@ -1,0 +1,33 @@
+<?php
+/**
+ * Left sidebar vertical category menu.
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$catalogUrl = $block->getUrl('catalog');
+
+$categories = [
+    ['label' => __('Telefonai, laikrodžiai, Foto'), 'icon' => 'cat-icon-phone'],
+    ['label' => __('Kompiuterinė technika'), 'icon' => 'cat-icon-laptop'],
+    ['label' => __('Virtuvės buitinė technika'), 'icon' => 'cat-icon-kitchen'],
+    ['label' => __('Buitinė technika namams'), 'icon' => 'cat-icon-home'],
+    ['label' => __('Televizoriai ir vaizdo technika'), 'icon' => 'cat-icon-tv'],
+    ['label' => __('Garso technika'), 'icon' => 'cat-icon-audio'],
+    ['label' => __('Žaidimų erdvė (PS5, XBOX)'), 'icon' => 'cat-icon-gaming'],
+    ['label' => __('Laisvalaikis'), 'icon' => 'cat-icon-outdoor'],
+    ['label' => __('Sportas ir sveikatingumas'), 'icon' => 'cat-icon-sports'],
+    ['label' => __('Sveikata ir higiena'), 'icon' => 'cat-icon-beauty'],
+    ['label' => __('Vejos robotai'), 'icon' => 'cat-icon-garden'],
+    ['label' => __('Žaislai'), 'icon' => 'cat-icon-toys'],
+    ['label' => __('Išmanieji namai'), 'icon' => 'cat-icon-smart'],
+    ['label' => __('Automobilių prekės'), 'icon' => 'cat-icon-car'],
+];
+?>
+<div class="sidebar" role="navigation">
+    <?php foreach ($categories as $cat): ?>
+        <a href="<?= $block->escapeUrl($catalogUrl) ?>" class="sidebar-item">
+            <span class="sidebar-icon <?= $block->escapeHtmlAttr($cat['icon']) ?>" aria-hidden="true"></span>
+            <span><?= $block->escapeHtml($cat['label']) ?></span>
+        </a>
+    <?php endforeach; ?>
+</div>
