@@ -22,6 +22,7 @@
 
         <!-- ========== TOPOCENTRAS FOOTER (full-width dark blue, 4 columns) ========== -->
         <referenceContainer name="footer">
+            <referenceBlock name="copyright" remove="true"/>
             <referenceBlock name="form.subscribe" remove="true"/>
             <referenceBlock name="footer_links" remove="true"/>
             <!-- Top section: Loyalty (logo + Join Now) | Newsletter -->
