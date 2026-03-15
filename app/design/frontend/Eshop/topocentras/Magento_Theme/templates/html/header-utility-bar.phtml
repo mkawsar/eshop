@@ -1,30 +1,45 @@
 <?php
 /**
- * Topocentras top bar: light grey background.
- * Left: Parduotuves, Verslui, phone, hours. Right: Užsakymo sekimas, (Prisijungti from top.links).
+ * Topocentras top bar: light grey, full width.
+ * Left: Parduotuvės, Verslui, phone, hours (with icons). Right: Užsakymo sekimas, Sign In (header only).
  *
  * @var $block \Magento\Framework\View\Element\Template
  */
 $storeListUrl = $block->getUrl('stores');
+$businessUrl = $block->getUrl('about');
 $orderTrackingUrl = $block->getUrl('sales/order/history');
+$loginUrl = $block->getUrl('customer/account/login');
 ?>
 <div class="topocentras-utility-bar">
     <div class="utility-bar-left">
         <a href="<?= $block->escapeUrl($storeListUrl) ?>" class="utility-link">
-            <span class="utility-icon">&#9737;</span>
+            <span class="utility-icon utility-icon-store" aria-hidden="true"></span>
             <?= $block->escapeHtml(__('Parduotuvės')) ?>
         </a>
-        <a href="<?= $block->escapeUrl($block->getUrl('about')) ?>" class="utility-link">
-            <span class="utility-icon">&#128196;</span>
+        <span class="utility-sep" aria-hidden="true"></span>
+        <a href="<?= $block->escapeUrl($businessUrl) ?>" class="utility-link">
+            <span class="utility-icon utility-icon-business" aria-hidden="true"></span>
             <?= $block->escapeHtml(__('Verslui')) ?>
         </a>
-        <span class="utility-phone">+370 660 00200</span>
-        <span class="utility-hours"><?= $block->escapeHtml(__('I-V 8:00-22:00 VI-VII 9:00-17:00')) ?></span>
+        <span class="utility-sep" aria-hidden="true"></span>
+        <span class="utility-item">
+            <span class="utility-icon utility-icon-phone" aria-hidden="true"></span>
+            <span class="utility-phone">+370 660 00200</span>
+        </span>
+        <span class="utility-sep" aria-hidden="true"></span>
+        <span class="utility-item">
+            <span class="utility-icon utility-icon-clock" aria-hidden="true"></span>
+            <span class="utility-hours"><?= $block->escapeHtml(__('I-V 8:00-22:00 VI-VII 9:00-17:00')) ?></span>
+        </span>
     </div>
     <div class="utility-bar-right">
         <a href="<?= $block->escapeUrl($orderTrackingUrl) ?>" class="utility-link">
-            <span class="utility-icon">&#128666;</span>
+            <span class="utility-icon utility-icon-truck" aria-hidden="true"></span>
             <?= $block->escapeHtml(__('Užsakymo sekimas')) ?>
+        </a>
+        <a href="<?= $block->escapeUrl($loginUrl) ?>" class="topocentras-header-signin">
+            <span class="utility-icon utility-icon-user" aria-hidden="true"></span>
+            <?= $block->escapeHtml(__('Prisijungti')) ?>
         </a>
     </div>
 </div>

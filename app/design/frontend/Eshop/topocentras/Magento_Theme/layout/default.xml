@@ -13,12 +13,37 @@
         <update handle="default_head_blocks"/>
         <!-- Top bar: light grey – Parduotuvės, Verslui, phone, hours | Užsakymo sekimas, Prisijungti -->
         <referenceContainer name="header.panel">
-            <block class="Magento\Framework\View\Element\Template" name="topocentras.utility.bar" template="Magento_Theme::html/header-utility-bar.phtml" before="store_language"/>
+            <block class="Magento\Framework\View\Element\Template" name="topocentras.utility.bar" template="Magento_Theme::html/header-utility-bar.phtml" before="-"/>
+            <!-- Remove default Luma: welcome message, currency switcher, language switcher -->
+            <referenceBlock name="store_language" remove="true"/>
+            <referenceBlock name="currency" remove="true"/>
         </referenceContainer>
+        <!-- Do not show header welcome message (design/header/welcome – "Default welcome msg!") -->
+        <referenceBlock name="header">
+            <arguments>
+                <argument name="show_part" xsi:type="string">other</argument>
+            </arguments>
+        </referenceBlock>
+        <!-- Remove "Create an account" link from top bar – keep only Sign In (first image) -->
+        <referenceBlock name="register-link" remove="true"/>
         <!-- Blue nav: Prekių katalogas (darker) + Akcijos, Apple, Paslaugos, etc. (output first in topmenu) -->
         <referenceBlock name="catalog.topnav">
             <block class="Magento\Framework\View\Element\Template" name="topocentras.blue.nav.items" template="Magento_Theme::html/blue-nav-items.phtml" before="-"/>
         </referenceBlock>
+
+        <!-- ========== MAIN HEADER: Logo | Search bar | Wishlist | Cart (full-width, flex layout) ========== -->
+        <referenceContainer name="header.content">
+            <container name="topocentras.header.actions"
+                       htmlTag="div"
+                       htmlClass="header-actions"
+                       after="topSearch">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.header.wishlist"
+                       template="Magento_Theme::html/header-wishlist-link.phtml"
+                       before="minicart"/>
+            </container>
+        </referenceContainer>
+        <move element="minicart" destination="topocentras.header.actions" after="topocentras.header.wishlist"/>
 
         <!-- ========== TOPOCENTRAS FOOTER (full-width dark blue, 4 columns) ========== -->
         <referenceContainer name="footer">

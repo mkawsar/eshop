@@ -1,0 +1,11 @@
+<?php
+/**
+ * Wishlist link for main header – icon in bordered box (Topocentras style).
+ *
+ * @var $block \Magento\Framework\View\Element\Template
+ */
+$wishlistUrl = $block->getUrl('wishlist');
+?>
+<a href="<?= $block->escapeUrl($wishlistUrl) ?>" class="action header-wishlist-link" title="<?= $block->escapeHtmlAttr(__('Wishlist')) ?>">
+    <span class="header-action-icon header-action-icon-wishlist" aria-hidden="true"></span>
+</a>

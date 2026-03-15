@@ -3,8 +3,9 @@
  * Primary: #0a4c8c, Alt: #1565c0, Promo border: #b39ddb, Yellow bar: #ffeb3b
  */
 
-/* ========== 1. TOP BAR – light grey, blue text, blue Login button (exact screenshot) ========== */
+/* ========== 1. TOP BAR – full width, light grey, icons, blue Login ========== */
 .page-header .panel.wrapper {
+    width: 100%;
     background-color: #f0f0f0 !important;
     color: #333;
     padding: 0 !important;
@@ -12,6 +13,7 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .page-header .panel.header {
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 8px 16px;
@@ -21,7 +23,7 @@
     justify-content: space-between;
     gap: 8px;
 }
-/* Utility bar: left = Parduotuvės, Verslui, phone, hours */
+/* Utility bar: left = Parduotuvės, Verslui, phone, hours | right = Order track, Login */
 .topocentras-utility-bar {
     display: flex;
     flex-wrap: wrap;
@@ -37,22 +39,96 @@
     flex-wrap: wrap;
     gap: 12px 20px;
 }
+.topocentras-utility-bar .utility-sep {
+    width: 1px;
+    height: 14px;
+    background: #ccc;
+    flex-shrink: 0;
+}
+.topocentras-utility-bar .utility-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
 .topocentras-utility-bar .utility-link {
     color: #003399 !important;
     text-decoration: none !important;
     font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 .topocentras-utility-bar .utility-link:hover {
     text-decoration: underline !important;
 }
+/* Utility bar icons (SVG via mask) */
 .topocentras-utility-bar .utility-icon {
-    margin-right: 4px;
-    opacity: 0.85;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    background: currentColor;
+    opacity: 0.9;
+}
+.topocentras-utility-bar .utility-icon-store {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.topocentras-utility-bar .utility-icon-business {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='9' cy='7' r='4'/%3E%3Cpath d='M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.topocentras-utility-bar .utility-icon-phone {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.topocentras-utility-bar .utility-icon-clock {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.topocentras-utility-bar .utility-icon-truck {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='1' y='3' width='15' height='13'/%3E%3Cpolygon points='16 8 20 8 23 11 23 16 16 16 16 8'/%3E%3Ccircle cx='5.5' cy='18.5' r='2.5'/%3E%3Ccircle cx='18.5' cy='18.5' r='2.5'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Crect x='1' y='3' width='15' height='13'/%3E%3Cpolygon points='16 8 20 8 23 11 23 16 16 16 16 8'/%3E%3Ccircle cx='5.5' cy='18.5' r='2.5'/%3E%3Ccircle cx='18.5' cy='18.5' r='2.5'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+.topocentras-utility-bar .utility-icon-user {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
+    background: currentColor;
+}
+/* Header only: Sign In button (replaces Prisijungti) */
+.topocentras-header-signin {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 6px;
+    background: #003399 !important;
+    color: #fff !important;
+    padding: 8px 16px !important;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+    text-decoration: none !important;
+}
+.topocentras-header-signin:hover {
+    background: #002266 !important;
+    color: #fff !important;
+    text-decoration: none !important;
 }
 .topocentras-utility-bar .utility-phone,
 .topocentras-utility-bar .utility-hours {
     font-size: 13px;
     color: #333;
+}
+/* Login button in panel: add user icon */
+.page-header .panel.header .header.links .authorization-link a::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    vertical-align: middle;
+    background: currentColor;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") no-repeat center/contain;
 }
 /* Panel: Login/Register on the right as blue button */
 .page-header .panel.header .header.links {
@@ -86,11 +162,22 @@
     background: #002266 !important;
     color: #fff !important;
 }
-/* Hide language switcher in top bar (not in Topocentras screenshot) */
-.page-header .panel.header .store_language { display: none; }
+/* Remove default Luma from top bar: language, currency, welcome, "or", Create account – use our "Sign In" only */
+.page-header .panel.header .store_language,
+.page-header .panel.header .currency,
+.page-header .panel.header .greet,
+.page-header .panel.header .header.links a[href*='account/create'],
+.page-header .panel.header .header.links li.authorization-link + li,
+.page-header .panel.header .header.links [data-label="or"] .label,
+.page-header .panel.header .header.links li:has(a[href*='account/create']),
+/* Hide default Sign In / Prisijungti – header uses topocentras-header-signin with "Sign In" text */
+.page-header .panel.header .header.links li.authorization-link {
+    display: none !important;
+}
 
-/* ========== Header content row: logo | search | minicart (exact same as reference) ========== */
+/* ========== Main header: full width, logo | search | wishlist | cart (first image) ========== */
 .page-header .header.content {
+    width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 16px !important;
@@ -105,10 +192,84 @@
     min-width: 220px;
     max-width: 520px;
 }
-.page-header .header.content .minicart-wrapper {
+/* Right-side actions: wishlist + cart in bordered icon boxes */
+.page-header .header.content .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     margin-left: auto;
 }
-/* ========== 2. MAIN HEADER – logo | search (rounded) | wishlist | cart (exact screenshot) ========== */
+.page-header .header.content .minicart-wrapper {
+    margin-left: 0;
+}
+/* Wishlist: icon in bordered box (first image) */
+.header-wishlist-link {
+    text-decoration: none;
+    color: inherit;
+}
+.header-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    color: #333;
+    transition: border-color 0.2s, color 0.2s;
+}
+.header-action-icon:hover {
+    border-color: #003399;
+    color: #003399;
+}
+.header-action-icon-wishlist {
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/%3E%3C/svg%3E") no-repeat center/contain;
+    background: currentColor;
+}
+/* Cart: icon in bordered box + label below (first image) */
+.minicart-wrapper .action.showcart {
+    display: inline-flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+    text-decoration: none;
+    color: #333;
+}
+.minicart-wrapper .action.showcart::before {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    content: '';
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'/%3E%3C/svg%3E") no-repeat center/contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6'/%3E%3C/svg%3E") no-repeat center/contain;
+    background: currentColor;
+}
+.minicart-wrapper .action.showcart:hover {
+    color: #003399;
+}
+.minicart-wrapper .action.showcart:hover::before {
+    border-color: #003399;
+}
+.minicart-wrapper .action.showcart .counter-label {
+    font-size: 13px;
+    color: #333;
+    order: 2;
+}
+@media (max-width: 768px) {
+    .page-header .header.content { gap: 12px 16px; padding: 12px 16px !important; }
+    .page-header .header.content .block-search { min-width: 100%; max-width: none; }
+}
+/* ========== 2. MAIN HEADER – logo | search (rounded) | wishlist | cart ========== */
 .block-search .control {
     display: flex !important;
     border: 1px solid #ddd !important;
@@ -133,8 +294,6 @@
 .block-search .action.search:hover {
     background: #002266 !important;
 }
-/* Minicart text "Krepšelis tuščias" style */
-.minicart-wrapper .action.showcart .counter-label { font-size: 13px; color: #333; }
 
 /* ========== Links and primary actions ========== */
 a {
