@@ -31,19 +31,30 @@
             <block class="Magento\Framework\View\Element\Template" name="topocentras.blue.nav.items" template="Magento_Theme::html/blue-nav-items.phtml" before="-"/>
         </referenceBlock>
 
-        <!-- ========== MAIN HEADER: Logo | Search bar | Wishlist | Cart (full-width, flex layout) ========== -->
-        <referenceContainer name="header.content">
-            <container name="topocentras.header.actions"
-                       htmlTag="div"
-                       htmlClass="header-actions"
-                       after="topSearch">
+        <!-- ========== MAIN HEADER: order = Logo → Search → Heart → Cart ========== -->
+        <referenceContainer name="header-wrapper">
+            <container name="topocentras.header.main.row"
+                      htmlTag="div"
+                      htmlClass="header-main-row"
+                      before="-"/>
+        </referenceContainer>
+        <referenceContainer name="topocentras.header.main.row">
+            <container name="topocentras.header.logo" htmlTag="div" htmlClass="header-logo" before="-"/>
+            <container name="topocentras.header.actions" htmlTag="div" htmlClass="header-actions">
                 <block class="Magento\Framework\View\Element\Template"
                        name="topocentras.header.wishlist"
                        template="Magento_Theme::html/header-wishlist-link.phtml"
                        before="minicart"/>
             </container>
         </referenceContainer>
+        <move element="logo" destination="topocentras.header.logo"/>
+        <move element="topSearch" destination="topocentras.header.main.row" after="topocentras.header.logo" before="topocentras.header.actions"/>
         <move element="minicart" destination="topocentras.header.actions" after="topocentras.header.wishlist"/>
+
+        <!-- Inline script fallback: enforce Logo → Search → Heart → Cart if layout move or JS module does not apply -->
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="topocentras.header.order.script" template="Magento_Theme::html/header-order-script.phtml" after="-"/>
+        </referenceContainer>
 
         <!-- ========== TOPOCENTRAS FOOTER (full-width dark blue, 4 columns) ========== -->
         <referenceContainer name="footer">

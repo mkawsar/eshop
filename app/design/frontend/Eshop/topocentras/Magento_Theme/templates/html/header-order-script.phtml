@@ -1,0 +1,32 @@
+<?php
+/**
+ * Inline script: enforce header order Logo → Search → Heart → Cart.
+ * Runs even if RequireJS module is not loaded.
+ */
+?>
+<script>
+(function() {
+  function ensureHeaderOrder() {
+    var scope = document.querySelector('.header.content') || document.querySelector('.page-header');
+    if (!scope) return;
+    var row = scope.querySelector('.header-main-row');
+    var logo = row && row.querySelector('.header-logo');
+    var search = scope.querySelector('.block-search');
+    if (!row || !logo || !search) return;
+    var actions = row.querySelector('.header-actions');
+    if (!actions) return;
+    if (search.parentElement !== row) {
+      row.insertBefore(search, actions);
+    } else if (logo.nextElementSibling !== search) {
+      row.insertBefore(search, logo.nextElementSibling);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', ensureHeaderOrder);
+  } else {
+    ensureHeaderOrder();
+  }
+  setTimeout(ensureHeaderOrder, 200);
+  setTimeout(ensureHeaderOrder, 800);
+})();
+</script>

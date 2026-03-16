@@ -175,38 +175,191 @@
     display: none !important;
 }
 
-/* ========== Main header: full width, logo | search | wishlist | cart (first image) ========== */
+/* ========== Main header (first image): Logo | Search | Wishlist | Cart – order and sizes ========== */
+/* Sizes from first image: row gap 20px, icon boxes 44px, search bar same visual height */
 .page-header .header.content {
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
     padding: 16px !important;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px 24px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #e3eaf2;
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap;
 }
-.page-header .header.content .block-search {
+.page-header .header-main-row {
+    display: flex !important;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 56px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* Enforce order: Logo → Search → Heart → Cart */
+.page-header .header-main-row .header-logo { order: 1; }
+.page-header .header-main-row .block-search { order: 2; }
+.page-header .header-main-row .header-actions { order: 3; }
+.page-header .header-main-row .header-actions .header-wishlist-link { order: 1; }
+.page-header .header-main-row .header-actions .minicart-wrapper { order: 2; }
+/* Reset margins so logo, search, actions align on one line */
+.page-header .header-main-row > *,
+.page-header .header.content > * {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-self: center !important;
+}
+/* 1. Logo – vertically centered with search and icons */
+.page-header .header-main-row .header-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    min-height: 44px;
+}
+.page-header .header-main-row .header-logo .logo {
+    margin: 0;
+    text-decoration: none;
+}
+.page-header .header-main-row .header-logo .logo-topo {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #003399;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+}
+.page-header .header-main-row .header-logo .logo-centras {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1565c0;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+}
+/* 2. Search bar – one group, no gap between input and button */
+.page-header .header.content .block-search,
+.page-header .header-main-row .block-search {
     flex: 1;
     min-width: 220px;
     max-width: 520px;
+    display: flex !important;
+    align-items: stretch !important;
+    align-self: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+    min-height: 44px;
 }
-/* Right-side actions: wishlist + cart in bordered icon boxes */
-.page-header .header.content .header-actions {
+.page-header .header.content .block-search .block-content,
+.page-header .header-main-row .block-search .block-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 !important;
+    padding: 0 !important;
+    gap: 0 !important;
+}
+/* Hide Search title and label so input aligns with logo/icons (form.mini.phtml has block-title + label) */
+.page-header .header.content .block-search .block-title,
+.page-header .header.content .block-search > .block-title,
+.page-header .header-main-row .block-search .block-title,
+.page-header .header-main-row .block-search > .block-title {
+    display: none !important;
+}
+.page-header .header.content .block-search .label,
+.page-header .header.content .block-search > .label,
+.page-header .header-main-row .block-search .label,
+.page-header .header-main-row .block-search > .label {
+    display: none !important;
+}
+.page-header .header.content .block-search .block-content,
+.page-header .header-main-row .block-search .block-content {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.page-header .header.content .block-search .control,
+.page-header .header-main-row .block-search .control {
+    margin: 0;
+    border: 0;
+}
+/* Header search: ONE bar – input and button flush, no gap */
+.page-header .header.content .block-search form,
+.page-header .header-main-row .block-search form,
+.page-header .header.content .block-search .form.minisearch,
+.page-header .header-main-row .block-search .form.minisearch {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 600px;
+    display: flex !important;
+    flex-wrap: nowrap;
+    gap: 0 !important;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+.page-header .header.content .block-search .field.search,
+.page-header .header-main-row .block-search .field.search {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    border: none !important;
+}
+.page-header .header.content .block-search .field.search .control,
+.page-header .header-main-row .block-search .field.search .control {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100%;
+    display: block !important;
+    border: none !important;
+}
+.page-header .header.content .block-search .actions,
+.page-header .header-main-row .block-search .actions {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 0 60px;
+    display: flex !important;
+    border: none !important;
+    background: #133F76 !important;
+}
+/* Screen-reader only label (form.mini override) */
+.block-search .label.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+/* 3. Wishlist | 4. Cart – 44px boxes, same vertical center as logo and search */
+.page-header .header-main-row .header-actions {
     display: flex;
     align-items: center;
+    align-self: center;
     gap: 12px;
     margin-left: auto;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    min-height: 44px;
 }
-.page-header .header.content .minicart-wrapper {
+.page-header .header-main-row .minicart-wrapper {
     margin-left: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
-/* Wishlist: icon in bordered box (first image) */
 .header-wishlist-link {
     text-decoration: none;
     color: inherit;
 }
+/* Icon boxes: 44×44px, 1px #ddd border, 4px radius (first image) */
 .header-action-icon {
     display: inline-flex;
     align-items: center;
@@ -266,33 +419,69 @@
     order: 2;
 }
 @media (max-width: 768px) {
-    .page-header .header.content { gap: 12px 16px; padding: 12px 16px !important; }
-    .page-header .header.content .block-search { min-width: 100%; max-width: none; }
+    .page-header .header.content { padding: 12px 16px !important; }
+    .page-header .header-main-row { gap: 12px 16px; }
+    .page-header .header-main-row .block-search { min-width: 100%; max-width: none; }
 }
-/* ========== 2. MAIN HEADER – logo | search (rounded) | wishlist | cart ========== */
-.block-search .control {
-    display: flex !important;
-    border: 1px solid #ddd !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    background: #fff;
+
+/* Header search: one group – grey input + blue button, no gap (sidebar unchanged) */
+.page-header .header.content .block-search .control,
+.page-header .header-main-row .block-search .control {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: #f4f4f4 !important;
 }
-.block-search input {
-    border: 0 !important;
-    padding: 10px 14px !important;
+.page-header .header.content .block-search input,
+.page-header .header-main-row .block-search input {
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    padding: 14px 16px !important;
     font-size: 14px !important;
+    background: #f4f4f4 !important;
+    outline: none !important;
+    box-sizing: border-box;
 }
-.block-search input::placeholder {
+.page-header .header.content .block-search input::placeholder,
+.page-header .header-main-row .block-search input::placeholder {
     color: #999;
 }
-.block-search .action.search {
-    background: #003399 !important;
-    border: 0 !important;
+/* Button: blue bg + white magnifying glass only (no text) */
+.page-header .header.content z,
+.page-header .header-main-row .block-search .action.search,
+.page-header .header.content .block-search .actions button.action.search,
+.page-header .header-main-row .block-search .actions button.action.search {
+    width: 60px !important;
+    min-width: 51px !important;
+    min-height: 35px;
+    padding: 0 !important;
+    background: #143399 !important;
+    background-color: #143399 !important;
+    border: none !important;
     color: #fff !important;
-    padding: 10px 18px !important;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box;
+    margin: 0 -11px 0px 0px !important;
 }
-.block-search .action.search:hover {
-    background: #002266 !important;
+.page-header .header.content .block-search .action.search span,
+.page-header .header-main-row .block-search .action.search span {
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    text-indent: -999px;
+    color: transparent;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+.page-header .header.content .block-search .action.search:hover,
+.page-header .header-main-row .block-search .action.search:hover,
+.page-header .header.content .block-search .actions button.action.search:hover,
+.page-header .header-main-row .block-search .actions button.action.search:hover {
+    background: #143399 !important;
+    background-color: #143399 !important;
 }
 
 /* ========== Links and primary actions ========== */
@@ -1015,15 +1204,39 @@ button.action.primary:hover {
     color: #0a4c8c;
 }
 
-/* ========== Logo (exact same as reference) ========== */
+/* ========== Logo – first image: TOPO (bold) / CENTRAS (smaller below) ========== */
+.page-header .header-logo .logo,
 .page-header .header.content .logo {
     margin: 0;
     flex-shrink: 0;
+    text-decoration: none;
+    display: block;
 }
 .page-header .logo img {
     max-height: 44px;
     width: auto;
     display: block;
+}
+/* Two-line text logo – actual design: TOPO dark blue, CENTRAS lighter blue */
+.page-header .logo .logo-line {
+    display: block;
+    font-family: inherit;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+}
+.page-header .logo .logo-topo {
+    color: #003399;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.page-header .logo .logo-centras {
+    color: #1565c0;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+}
+.page-header .logo:hover .logo-line {
+    color: #002266;
 }
 
 /* ========== Footer – TOPOCENTRAS (full-width dark blue, 4 columns) ========== */

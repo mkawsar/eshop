@@ -162,6 +162,33 @@ define(['jquery'], function ($) {
 
   $(bind);
 
+  // Enforce header order: Logo → Search → Heart → Cart
+  function ensureHeaderOrder() {
+    var scope = document.querySelector('.header.content') || document.querySelector('.page-header');
+    if (!scope) return;
+    var row = scope.querySelector('.header-main-row');
+    var logo = row && row.querySelector('.header-logo');
+    var search = scope.querySelector('.block-search');
+    if (!row || !logo || !search) return;
+    var actions = row.querySelector('.header-actions');
+    if (!actions) return;
+    if (search.parentElement !== row) {
+      row.insertBefore(search, actions);
+    } else if (logo.nextElementSibling !== search) {
+      row.insertBefore(search, logo.nextElementSibling);
+    }
+  }
+  $(ensureHeaderOrder);
+  setTimeout(ensureHeaderOrder, 100);
+  setTimeout(ensureHeaderOrder, 600);
+  $(document).on('contentUpdated', ensureHeaderOrder);
+
+  // Actual design: search placeholder "Ieškoti prekes, kategorijos..."
+  var searchInput = document.getElementById('search') || document.querySelector('.block-search input[name="q"]');
+  if (searchInput) {
+    searchInput.setAttribute('placeholder', 'Ieškoti prekes, kategorijos...');
+  }
+
   return {};
 });
 

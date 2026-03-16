@@ -1,0 +1,13 @@
+<?php
+/**
+ * Header logo – first image style: two-line text "TOPO" / "CENTRAS" in blue.
+ * To use an image logo instead, remove this file or override in a child theme.
+ *
+ * @var $block \Magento\Theme\Block\Html\Header\Logo
+ */
+$storeName = $block->getStoreName();
+?>
+<a class="logo" href="<?= $block->escapeUrl($block->getUrl('')) ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>">
+    <span class="logo-line logo-topo">TOPO</span>
+    <span class="logo-line logo-centras">CENTRAS</span>
+</a>
