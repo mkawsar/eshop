@@ -1,13 +1,13 @@
 <?php
 /**
- * Header logo – first image style: two-line text "TOPO" / "CENTRAS" in blue.
- * To use an image logo instead, remove this file or override in a child theme.
+ * Header logo – Topocentras SVG from topocentras.lt
  *
  * @var $block \Magento\Theme\Block\Html\Header\Logo
  */
 $storeName = $block->getStoreName();
+$logoSrc = 'https://www.topocentras.lt/media/logo/stores/1/logotc_dblue.svg';
+$logoAlt = $block->escapeHtmlAttr($storeName);
 ?>
-<a class="logo" href="<?= $block->escapeUrl($block->getUrl('')) ?>" title="<?= $block->escapeHtmlAttr($storeName) ?>">
-    <span class="logo-line logo-topo">TOPO</span>
-    <span class="logo-line logo-centras">CENTRAS</span>
+<a class="logo" href="<?= $block->escapeUrl($block->getUrl('')) ?>" title="<?= $logoAlt ?>">
+    <img src="<?= $block->escapeUrl($logoSrc) ?>" alt="<?= $logoAlt ?>" width="186" height="53" loading="lazy" />
 </a>

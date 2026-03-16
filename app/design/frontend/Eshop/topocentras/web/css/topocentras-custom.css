@@ -1213,9 +1213,9 @@ button.action.primary:hover {
     display: block;
 }
 .page-header .logo img {
-    max-height: 44px;
-    width: auto;
+    width: 260px !important;
     display: block;
+    height: 71px !important;
 }
 /* Two-line text logo – actual design: TOPO dark blue, CENTRAS lighter blue */
 .page-header .logo .logo-line {
