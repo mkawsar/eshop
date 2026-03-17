@@ -922,6 +922,19 @@ button.action.primary:hover {
 .topocentras-home-slider__slide.is-active {
     display: block;
 }
+.topocentras-home-slider__img-link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+.topocentras-home-slider__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+}
 .topocentras-home-slider__prev,
 .topocentras-home-slider__next {
     align-items: center;

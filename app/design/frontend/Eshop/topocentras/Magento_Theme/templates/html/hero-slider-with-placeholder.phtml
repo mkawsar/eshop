@@ -22,6 +22,13 @@ $hasAny = false;
 foreach ($slides as $s) {
     if (trim((string)$s)) { $hasAny = true; break; }
 }
+
+$fallbackImages = [
+    'https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=85/media/wysiwyg/Akcijubaneriai2026/CM-3161-AU_-DR_TE-1080x1330.jpg',
+    'https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=85/media/wysiwyg/Akcijubaneriai2026/CM-3160-AU_-DR_DU-1080x1330.jpg',
+    'https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=85/media/wysiwyg/Akcijubaneriai2026/CM-3163-AU_-DR_PL-1080x1330.jpg',
+    'https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=85/media/wysiwyg/Akcijubaneriai2026/CM-3116-AU_-DR_NE-1080x1330.jpg',
+];
 ?>
 
 <section class="topocentras-home-slider" aria-label="<?= $block->escapeHtmlAttr(__('Homepage slider')) ?>">
@@ -34,32 +41,18 @@ foreach ($slides as $s) {
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
-            <div class="topocentras-home-slider__slide is-active" data-slide aria-hidden="false">
-                <div class="topocentras-hero hero-placeholder">
-                    <div class="hero-grid">
-                        <div class="hero-left">
-                            <div class="hero-brand">WATCH SERIES 11</div>
-                            <h2 class="hero-title"><?= $block->escapeHtml(__('Galingas treniruočių partneris.')) ?></h2>
-                        </div>
-                        <div class="hero-center">
-                            <div class="hero-image-placeholder"></div>
-                        </div>
-                        <div class="hero-right">
-                            <div class="hero-price-badge">
-                                <div class="badge-title"><?= $block->escapeHtml(__('TOPO KLUBO KAINA')) ?></div>
-                                <div class="badge-price">389 €</div>
-                                <div class="badge-old">459 €</div>
-                            </div>
-                            <a class="hero-cta" href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>">
-                                <?= $block->escapeHtml(__('Buy')) ?>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-hint">
-                        <?= $block->escapeHtml(__('Add CMS blocks "topocentras-hero-slide-1..3" (Content → Blocks) to replace this placeholder.')) ?>
-                    </div>
+            <?php foreach ($fallbackImages as $i => $src): ?>
+                <div class="topocentras-home-slider__slide<?= $i === 0 ? ' is-active' : '' ?>" data-slide aria-hidden="<?= $i === 0 ? 'false' : 'true' ?>">
+                    <a class="topocentras-home-slider__img-link" href="<?= $block->escapeUrl($block->getUrl('catalog')) ?>" aria-label="<?= $block->escapeHtmlAttr(__('Promotion %1', $i + 1)) ?>">
+                        <img
+                            class="topocentras-home-slider__img"
+                            src="<?= $block->escapeUrl($src) ?>"
+                            alt="<?= $block->escapeHtmlAttr(__('Promotion %1', $i + 1)) ?>"
+                            loading="<?= $i === 0 ? 'eager' : 'lazy' ?>"
+                        />
+                    </a>
                 </div>
-            </div>
+            <?php endforeach; ?>
         <?php endif; ?>
     </div>
 
