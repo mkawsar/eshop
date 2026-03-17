@@ -1233,23 +1233,6 @@ button.action.primary:hover {
     object-fit: cover;
 }
 
-/* ========== Product grid ========== */
-.products-grid .product-item .product-item-info {
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 15px;
-    transition: box-shadow 0.2s ease;
-}
-.products-grid .product-item .product-item-info:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-.products-grid .product-item .product-item-info .product-item-link {
-    color: #0a4c8c;
-}
-.products-grid .product-item .product-item-info .product-item-link:hover {
-    color: #1565c0;
-}
-
 /* ========== Minicart / header icons (optional blue accent) ========== */
 .header.content .minicart-wrapper .action.showcart:hover {
     color: #0a4c8c;
@@ -1667,14 +1650,6 @@ button.action.primary:hover {
     .footer-newsletter-field .input-text {
         min-width: 100%;
     }
-}
-
-/* ========== Homepage product list title ========== */
-.block.widget.new-products .block-title {
-    color: #0a4c8c;
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
 }
 
 /* ========== Breadcrumbs ========== */
