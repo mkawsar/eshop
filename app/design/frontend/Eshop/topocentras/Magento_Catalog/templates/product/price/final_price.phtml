@@ -1,6 +1,11 @@
 <?php
 /**
  * Topocentras: show regular price, "Topo klubo kaina" (special), and "Nuolaida" % when product has loyalty discount.
+ *
+ * How to get the final price from a product:
+ * - In this template (price block): $block->getPriceType('final_price')->getAmount()->getValue()
+ * - In PHP when you have $product: $product->getPriceInfo()->getPrice(\Magento\Catalog\Pricing\Price\FinalPrice::PRICE_CODE)->getAmount()->getValue()
+ *   or ->getValue() for the raw final price (special/regular applied).
  */
 ?>
 <?php
@@ -16,6 +21,7 @@ $idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
 $schema = ($block->getZone() == 'item_view') ? true : false;
 
 $regularValue = $priceModel->getAmount()->getValue();
+/** Final price: regular or special (Topo klubo) — this is the price the customer pays */
 $finalValue = $finalPriceModel->getAmount()->getValue();
 $hasTopoKluboPrice = $block->hasSpecialPrice() && $regularValue > 0;
 $discountPercent = $hasTopoKluboPrice
