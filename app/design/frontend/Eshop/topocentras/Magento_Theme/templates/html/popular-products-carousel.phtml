@@ -1,0 +1,59 @@
+<?php
+/**
+ * "Populiaru dabar" (Popular now) product carousel.
+ * Uses product collection from NewWidget (or block with getProductCollection()).
+ * Section: header (title + prev/next) + horizontal carousel of product cards.
+ *
+ * @var $block \Magento\Catalog\Block\Product\Widget\NewWidget
+ */
+
+$products = $block->getProductCollection();
+if (!$products || !$products->getSize()) {
+    return;
+}
+
+$title = $block->getData('title') ?: __('Populiaru dabar');
+$imageCdnBase = $block->getData('image_cdn_base') ?: '';
+?>
+<section class="popular-carousel-section" role="region" aria-label="<?= $block->escapeHtmlAttr($title) ?>">
+    <div class="popular-carousel-header">
+        <h2 class="popular-carousel-title"><?= $block->escapeHtml($title) ?></h2>
+        <div class="popular-carousel-nav" aria-label="<?= $block->escapeHtmlAttr(__('Carousel navigation')) ?>">
+            <button type="button" class="popular-carousel-prev" aria-label="<?= $block->escapeHtmlAttr(__('Previous')) ?>">&larr;</button>
+            <button type="button" class="popular-carousel-next" aria-label="<?= $block->escapeHtmlAttr(__('Next')) ?>">&rarr;</button>
+        </div>
+    </div>
+    <div class="popular-carousel-viewport">
+        <div class="popular-carousel-track" id="topocentras-popular-carousel">
+            <?php foreach ($products as $product): ?>
+                <?php
+                $productUrl = $product->getProductUrl();
+                $productName = $product->getName();
+                $imageBlock = $block->getImage($product, 'product_small_image');
+                ?>
+                <div class="popular-carousel-card-wrap">
+                    <div class="popular-carousel-card">
+                        <a href="<?= $block->escapeUrl($productUrl) ?>" class="popular-carousel-card__link">
+                            <span class="popular-carousel-card__image-wrap">
+                                <?= $imageBlock->toHtml() ?>
+                            </span>
+                            <h3 class="popular-carousel-card__title"><?= $block->escapeHtml($productName) ?></h3>
+                            <?php if ($product->getShortDescription()): ?>
+                                <div class="popular-carousel-card__specs">
+                                    <?= $block->escapeHtml($product->getShortDescription()) ?>
+                                </div>
+                            <?php endif; ?>
+                            <div class="popular-carousel-card__price">
+                                <?= /* @noEscape */ $block->getProductPriceHtml($product, 'final_price', true) ?>
+                            </div>
+                            <span class="popular-carousel-card__cta">
+                                <span class="popular-carousel-card__cta-line"><?= $block->escapeHtml(__('Atsiimkite jau po 30 min.')) ?></span>
+                                <span class="popular-carousel-card__cta-line"><?= $block->escapeHtml(__('Pristatymas per 1-3 d.d.')) ?></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>

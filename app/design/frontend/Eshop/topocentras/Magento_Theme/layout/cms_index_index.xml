@@ -43,7 +43,19 @@
                 <block class="Magento\Framework\View\Element\Template"
                        name="topocentras.category.carousel"
                        template="Magento_Theme::html/category-carousel.phtml"
-                       before="homepage.products.list"/>
+                       before="topocentras.popular.carousel"/>
+                <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
+                       name="topocentras.popular.carousel"
+                       template="Magento_Theme::html/popular-products-carousel.phtml"
+                       before="homepage.products.list">
+                    <arguments>
+                        <argument name="title" xsi:type="string" translate="true">Populiaru dabar</argument>
+                        <argument name="display_type" xsi:type="string">all_products</argument>
+                        <argument name="products_count" xsi:type="number">12</argument>
+                        <argument name="products_per_page" xsi:type="number">12</argument>
+                        <argument name="show_pager" xsi:type="boolean">false</argument>
+                    </arguments>
+                </block>
                 <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
                        name="homepage.products.list"
                        template="Magento_Catalog::product/widget/new/content/new_grid.phtml">
