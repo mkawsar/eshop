@@ -1182,6 +1182,44 @@ button.action.primary:hover {
     height: auto;
 }
 
+/* ========== 4 image banners above New Products ========== */
+.topocentras-top-banners {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 0 auto 1.5rem;
+    max-width: 1280px;
+    padding: 0 16px;
+}
+@media (max-width: 1024px) {
+    .topocentras-top-banners { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    .topocentras-top-banners { grid-template-columns: 1fr; }
+}
+.topocentras-top-banner {
+    display: block;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.topocentras-top-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    border-color: #0a4c8c;
+}
+.topocentras-top-banner__img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1080 / 1330;
+    object-fit: cover;
+}
+
 /* ========== Product grid ========== */
 .products-grid .product-item .product-item-info {
     border: 1px solid #e0e0e0;

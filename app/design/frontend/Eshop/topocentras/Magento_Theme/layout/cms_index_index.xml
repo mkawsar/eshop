@@ -36,6 +36,10 @@
             </container>
             <!-- Full-width product grid (below sidebar + hero + promo) -->
             <container name="homepage.products.wrapper" htmlTag="div" htmlClass="homepage-products-fullwidth">
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.top.banners.above.new.products"
+                       template="Magento_Theme::html/top-banners-above-new-products.phtml"
+                       before="homepage.products.list"/>
                 <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
                        name="homepage.products.list"
                        template="Magento_Catalog::product/widget/new/content/new_grid.phtml">
