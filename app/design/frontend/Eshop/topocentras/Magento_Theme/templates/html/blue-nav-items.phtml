@@ -15,46 +15,55 @@ try {
     $catalogUrl = $category->getUrl();
 } catch (\Exception $e) {}
 $saleUrl = $block->getData('sale_url') ?: $catalogUrl;
+$iconBase = 'https://www.topocentras.lt/media/catalog/category/';
+$navIcons = [
+    'promotions' => $iconBase . 'bf-24.webp',
+    'apple'      => $iconBase . 'Iphone_White2.png',
+    'services'  => $iconBase . 'Paslaugos_ir_sprendimai_White2.png',
+    'discounted'=> $iconBase . 'isparduotuve_desk.svg',
+    'club'      => $iconBase . 'Topo_Klubas_2.png',
+    'gift'      => $iconBase . 'gift_c_w_1.svg',
+];
 ?>
 <li class="level0 nav-0 nav-catalog-trigger first">
     <a href="<?= $block->escapeUrl($catalogUrl) ?>" class="level-top" data-action="toggle-catalog-sidebar">
         <span class="nav-catalog-hamburger"></span>
-        <span><?= $block->escapeHtml(__('Product Catalog')) ?></span>
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Prekių katalogas')) ?></span>
     </a>
 </li>
 <li class="level0 nav-promotions">
     <a href="<?= $block->escapeUrl($saleUrl) ?>" class="level-top">
-        <span class="nav-icon nav-icon-percent"></span>
-        <span><?= $block->escapeHtml(__('Promotions')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['promotions']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Akcijos ir pasiūlymai')) ?></span>
     </a>
 </li>
 <li class="level0 nav-apple">
     <a href="<?= $block->escapeUrl($block->getUrl('catalog/category/view', ['id' => $rootCategoryId])) ?>" class="level-top">
-        <span class="nav-icon nav-icon-phone"></span>
-        <span><?= $block->escapeHtml(__('Apple Store')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['apple']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Apple parduotuvė')) ?></span>
     </a>
 </li>
 <li class="level0 nav-services">
     <a href="<?= $block->escapeUrl($block->getUrl('customer/account')) ?>" class="level-top">
-        <span class="nav-icon nav-icon-gear"></span>
-        <span><?= $block->escapeHtml(__('Services')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['services']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Paslaugos')) ?></span>
     </a>
 </li>
 <li class="level0 nav-discounted">
     <a href="<?= $block->escapeUrl($saleUrl) ?>" class="level-top">
-        <span class="nav-icon nav-icon-diamond"></span>
-        <span><?= $block->escapeHtml(__('Discounted Products')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['discounted']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Prekės į minusą')) ?></span>
     </a>
 </li>
 <li class="level0 nav-club">
     <a href="<?= $block->escapeUrl($catalogUrl) ?>" class="level-top">
-        <span class="nav-icon nav-icon-star"></span>
-        <span><?= $block->escapeHtml(__('Club Offers')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['club']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Topo Klubo pasiūlymai')) ?></span>
     </a>
 </li>
 <li class="level0 nav-gift-coupons last">
     <a href="<?= $block->escapeUrl($block->getUrl('sales/order/history')) ?>" class="level-top">
-        <span class="nav-icon nav-icon-gift"></span>
-        <span><?= $block->escapeHtml(__('Gift Coupons')) ?></span>
+        <img src="<?= $block->escapeUrl($navIcons['gift']) ?>" alt="" class="nav-icon-img" width="24" height="24" loading="lazy">
+        <span class="nav-item-label"><?= $block->escapeHtml(__('Dovanų kuponas')) ?></span>
     </a>
 </li>

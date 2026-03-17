@@ -543,9 +543,20 @@ button.action.primary:hover {
     padding: 12px 16px !important;
     font-size: 14px;
     display: inline-flex !important;
-    align-items: center;
+    align-items: flex-start; /* top-align icon when label wraps to 2 lines */
     gap: 6px;
     text-decoration: none !important;
+    white-space: normal !important; /* allow label to wrap */
+}
+/* Nav label: one line when short, wrap to two lines when long */
+.nav-sections .topocentras-blue-nav .nav-item-label {
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 110px;
+    min-width: 0; /* allow flex child to shrink and wrap */
+    line-height: 1.25;
+    text-align: left;
 }
 .nav-sections .topocentras-blue-nav > li > a:hover,
 .nav-sections .navigation .level0 > .level-top:hover {
@@ -594,6 +605,16 @@ button.action.primary:hover {
 .nav-icon-diamond,
 .nav-icon-star,
 .nav-icon-gift { border-radius: 50%; }
+
+/* Nav item image icons (Topocentras assets) */
+.topocentras-blue-nav .nav-icon-img {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+    vertical-align: middle;
+}
 
 /* Legacy nav hover (categories) */
 .nav-sections .navigation a:hover,
