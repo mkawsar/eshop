@@ -39,6 +39,10 @@
                 <block class="Magento\Framework\View\Element\Template"
                        name="topocentras.top.banners.above.new.products"
                        template="Magento_Theme::html/top-banners-above-new-products.phtml"
+                       before="topocentras.category.carousel"/>
+                <block class="Magento\Framework\View\Element\Template"
+                       name="topocentras.category.carousel"
+                       template="Magento_Theme::html/category-carousel.phtml"
                        before="homepage.products.list"/>
                 <block class="Magento\Catalog\Block\Product\Widget\NewWidget"
                        name="homepage.products.list"
