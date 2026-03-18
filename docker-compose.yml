@@ -60,7 +60,11 @@ services:
     environment:
       discovery.type: single-node
       xpack.security.enabled: "false"
-      "ES_JAVA_OPTS": "-Xms512m -Xmx512m"
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     ports:
       - "${ELASTICSEARCH_PORT:-9200}:9200"
     volumes:
